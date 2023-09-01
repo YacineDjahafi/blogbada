@@ -18,11 +18,13 @@ class HomeController extends AbstractController
         MenuRepository $menuRepository, SubMenusRepository $subMenusRepository
         ): Response
     {
+        $subMenus = $subMenusRepository->subMenusByName();
         return $this->render('home/index.html.twig', [
             'articles' => $articleRepo->findAll(),
             'categories' => $categoryrepo->findAll(),
             'menus' => $menuRepository->findAll(),
-            'subMenus' => $subMenusRepository->findAll()
+            'subMenuses' => $subMenus
+            // Repository->findAll()
         ]);
     }
 }

@@ -31,7 +31,7 @@ class MenuCrudController extends AbstractCrudController
     {
         yield TextField::new('name', 'Nom du menu');
         yield NumberField::new('menuOrder', 'Ordre');
-        yield ChoiceField::new('subMenus', 'Sous-menus', SubMenus::class)
+        yield ChoiceField::new('subMenuses', 'Sous-menus', SubMenus::class)
             ->allowMultipleChoices()
             ->autocomplete()
             ->setFormTypeOptions(['multiple' => true], ['expanded' => true]);

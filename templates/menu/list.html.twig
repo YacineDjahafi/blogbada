@@ -11,8 +11,28 @@
                 </div>
             </div>
         </nav>
+{# TEST #}
+<ul>
+    {% for menu in menus %}
+        <li>
+            <strong>Nom du menu :</strong> {{ menu.name }}<br>
+            <strong>Liens :</strong> {{ menu.link }}<br>
+            <strong>Sous-menus :</strong>
+            <ul>
+                {% for subMenu in menu.subMenuses %}
+                    <li>
+                        {{ subMenu.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
 
 
+
+
+{# 
 <h4>Liste des Menus</h4>
 
     <ul>
@@ -22,9 +42,9 @@
                 <li class="nav-item">
                     <a href="{{menu.link}}" class="nav-link text-dark" aria-current="page">{{ menu.name }}</a>
                     <ul>
-                    {# {% for subMenu in menu.subMenus %}
+                    {% for subMenu in menu.subMenus %}
                         <li>{{ subMenu.name }}</li> 
-                    {% endfor %}#}
+                    {% endfor %}
                     </ul>
                 </li>
             </ul>
@@ -32,7 +52,7 @@
     </ul>
 
     <h1>Liste des Sous-menus</h1>
-{# 
+
     <ul>
         {% for subMenu in subMenus %}
             <li>

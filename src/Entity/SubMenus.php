@@ -31,7 +31,8 @@ class SubMenus
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Category $category = null;
 
-    #[ORM\ManyToOne(inversedBy: 'subMenuses')]
+    #[ORM\ManyToOne(targetEntity: Menu::class, inversedBy: 'subMenuses')]
+    #[ORM\JoinColumn(name: 'menu_id', referencedColumnName: 'id')]
     private ?Menu $menu = null;
 
     public function getId(): ?int

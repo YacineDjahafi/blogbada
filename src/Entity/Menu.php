@@ -21,12 +21,6 @@ class Menu
     #[ORM\Column(nullable: true)]
     private ?int $menuOrder = null;
 
-    #[ORM\ManyToMany(targetEntity: SubMenus::class, inversedBy: 'subMenus')]
-    private Collection $subMenu;
-
-    #[ORM\ManyToMany(targetEntity: SubMenus::class, mappedBy: 'subMenu')]
-    private Collection $subMenus;
-
     #[ORM\Column]
     private ?bool $isVisible = null;
 
@@ -36,9 +30,6 @@ class Menu
     #[ORM\ManyToOne]
     private ?Category $category = null;
 
-    #[ORM\ManyToOne]
-    private ?Page $page = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $link = null;
 
@@ -47,8 +38,6 @@ class Menu
 
     public function __construct()
     {
-        $this->subMenu = new ArrayCollection();
-        $this->subMenus = new ArrayCollection();
         $this->subMenuses = new ArrayCollection();
     }
 
@@ -80,35 +69,13 @@ class Menu
         return $this;
     }
 
-    /**
-     * @return Collection<int, self>
-     */
-    public function getSubMenu(): Collection
-    {
-        return $this->subMenu;
-    }
-
-    public function addSubMenu(self $subMenu): static
-    {
-        if (!$this->subMenu->contains($subMenu)) {
-            $this->subMenu->add($subMenu);
-        }
-        return $this;
-    }
-
-    public function removeSubMenu(self $subMenu): static
-    {
-        $this->subMenu->removeElement($subMenu);
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, self>
-     */
-    public function getSubMenus(): Collection
-    {
-        return $this->subMenus;
-    }
+    // /**
+    //  * @return Collection<int, self>
+    //  */
+    // public function getSubMenus(): Collection
+    // {
+    //     return $this->subMenus;
+    // }
 
     public function isIsVisible(): ?bool
     {
@@ -140,18 +107,6 @@ class Menu
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
-        return $this;
-    }
-
-    public function getPage(): ?Page
-    {
-        return $this->page;
-    }
-
-    public function setPage(?Page $page): static
-    {
-        $this->page = $page;
-
         return $this;
     }
 
