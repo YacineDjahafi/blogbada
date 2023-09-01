@@ -1,0 +1,61 @@
+<nav class="py-2 bg-dark border-bottom">
+            <div class="container d-flex flex-wrap">
+
+                <div class="dropdown">
+                    <a class="nav nav-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Badaboum Theatre
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
+                        <li><a class="dropdown-item" href="{{path('admin')}}">Tableau de bord</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+<h4>Liste des Menus</h4>
+
+    <ul>
+        {% for menu in menus %}
+
+            <ul class="nav nav-pills align-items-center">
+                <li class="nav-item">
+                    <a href="{{menu.link}}" class="nav-link text-dark" aria-current="page">{{ menu.name }}</a>
+                    <ul>
+                    {# {% for subMenu in menu.subMenus %}
+                        <li>{{ subMenu.name }}</li> 
+                    {% endfor %}#}
+                    </ul>
+                </li>
+            </ul>
+        {% endfor %}
+    </ul>
+
+    <h1>Liste des Sous-menus</h1>
+{# 
+    <ul>
+        {% for subMenu in subMenus %}
+            <li>
+                <strong>Nom :</strong> {{ subMenu.name }}<br>
+
+            </li>
+        {% endfor %}
+    </ul> #}
+
+    {# {% if subMenu in menu.subMenus %}
+                    {% for subMenu in menu.subMenus %}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-dark" aria-current="page"> Se connecter </a>
+                    </li>
+                    {% endfor %}
+                    {% endif %} #}
+                    {#  <li>
+                <strong>Nom :</strong> {{ menu.name }}<br>
+                <strong>Ordre :</strong> {{ menu.menuOrder }}<br>
+                <ul>
+                    {% for subMenu in menu.subMenus %}
+                        <li>{{ subMenu.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %} #}
