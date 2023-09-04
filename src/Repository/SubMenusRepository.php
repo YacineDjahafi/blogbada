@@ -28,16 +28,26 @@ class SubMenusRepository extends ServiceEntityRepository
     //     return $query->getArrayResult();
     // }
 
+    // TEST
    /**
     * @return SubMenus[] Returns an array of SubMenus objects
     */
    public function subMenusByName(): array
    {
        return $this->createQueryBuilder('s')
-           ->orderBy('s.id', 'ASC')
+        //    ->orderBy('s.id', 'ASC')
            ->getQuery()
            ->getResult()
        ;
    }
+// TEST
+//    public function toArray()
+// {
+//     return [
+//         'id' => $this->getId(),
+//         'name' => $this->name,
+//         'collection_objects' => $this->collection_objects->toArray()
+//     ];
+// }
 
 }

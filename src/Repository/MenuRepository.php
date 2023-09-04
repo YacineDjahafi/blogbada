@@ -30,14 +30,86 @@ class MenuRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-    public function findSubMenus($parentMenu)
-    {
-        return $this->createQueryBuilder('menu')
-            ->andWhere('menu.subMenu = :parentMenu')
-            ->setParameter('parentMenu', $parentMenu)
-            ->orderBy('menu.menuOrder', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
+    // TEST ULTIME
+    public function findByName(string $name): array
+{
+    $qb = $this->createQueryBuilder('m')
+        ->select('m.name')
+        ->addSelect('s.name AS subMenuName')
+        ->leftJoin('m.subMenuses', 's')
+        ->where('m.name = :name')
+        ->setParameter('name', $name)
+        ->getQuery();
+
+    $results = $qb->getResult();
+
+    // Reformat the results into the desired structure
+    $formattedResults = [];
+    foreach ($results as $result) {
+        $menuName = $result['name'];
+        $subMenuName = $result['subMenuName'];
+
+        if (!isset($formattedResults[$menuName])) {
+            $formattedResults[$menuName] = [
+                'name' => $menuName,
+                'subMenus' => [],
+            ];
+        }
+
+        if ($subMenuName !== null) {
+            $formattedResults[$menuName]['subMenus'][] = [
+                'name' => $subMenuName,
+            ];
+        }
+   }
+    return array_values($formattedResults);
+}
+
+    
+    // TEST 3
+    // public function findByName(): array
+    // {
+    //     $qb = $this->createQueryBuilder('m')
+    //         ->select(' m.name')
+    //         ->addSelect('s.name AS subMenuName')
+    //         ->leftJoin('m.subMenuses', 's')
+    //         ->getQuery();
+
+    //     $results = $qb->getResult();
+
+    //     // Reformat the results into the desired structure
+    //     $formattedResults = [];
+    //     foreach ($results as $result) {
+    //         $menuName = $result['name'];
+    //         $subMenuName = $result['subMenuName'];
+
+    //         if (!isset($formattedResults[$menuName])) {
+    //             $formattedResults[$menuName] = [
+    //                 'name' => $menuName,
+    //                 'subMenus' => [],
+    //             ];
+    //         }
+
+    //         if ($subMenuName !== null) {
+    //             $formattedResults[$menuName]['subMenus'][] = [
+    //                 'name' => $subMenuName,
+    //             ];
+    //         }
+    //    }
+
+    // return array_values($formattedResults);
+    // }
+
+    
+    // TEST
+    // public function findSubMenus($parentMenu)
+    // {
+    //     return $this->createQueryBuilder('menu')
+    //         ->andWhere('menu.subMenu = :parentMenu')
+    //         ->setParameter('parentMenu', $parentMenu)
+    //         ->orderBy('menu.menuOrder', 'ASC')
+    //         ->getQuery()
+    //         ->getResult();
+    // }
 
 }

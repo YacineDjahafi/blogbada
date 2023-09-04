@@ -17,7 +17,7 @@ class SubMenus
     private ?string $name = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $submenu_order = null;
+    private ?int $submenuOrder = null;
 
     #[ORM\Column]
     private ?bool $is_visible = null;
@@ -30,7 +30,7 @@ class SubMenus
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Category $category = null;
-
+    
     #[ORM\ManyToOne(targetEntity: Menu::class, inversedBy: 'subMenuses')]
     #[ORM\JoinColumn(name: 'menu_id', referencedColumnName: 'id')]
     private ?Menu $menu = null;
@@ -54,12 +54,12 @@ class SubMenus
 
     public function getSubmenuOrder(): ?int
     {
-        return $this->submenu_order;
+        return $this->submenuOrder;
     }
 
-    public function setSubmenuOrder(?int $submenu_order): static
+    public function setSubmenuOrder(?int $submenuOrder): static
     {
-        $this->submenu_order = $submenu_order;
+        $this->submenuOrder = $submenuOrder;
 
         return $this;
     }

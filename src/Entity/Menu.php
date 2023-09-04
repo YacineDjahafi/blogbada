@@ -21,6 +21,8 @@ class Menu
     #[ORM\Column(nullable: true)]
     private ?int $menuOrder = null;
 
+
+
     #[ORM\Column]
     private ?bool $isVisible = null;
 
@@ -54,7 +56,6 @@ class Menu
     public function setName(string $name): static
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -69,13 +70,7 @@ class Menu
         return $this;
     }
 
-    // /**
-    //  * @return Collection<int, self>
-    //  */
-    // public function getSubMenus(): Collection
-    // {
-    //     return $this->subMenus;
-    // }
+   
 
     public function isIsVisible(): ?bool
     {
@@ -110,6 +105,8 @@ class Menu
         return $this;
     }
 
+
+
     public function getLink(): ?string
     {
         return $this->link;
@@ -127,16 +124,11 @@ class Menu
         return $this->name;
     }
 
-    /**
-     * @return Collection<int, SubMenus>
-     */
-    public function getSubMenuses(): Collection
-    {
-        return $this->subMenuses;
-    }
+  
 
     public function addSubMenus(SubMenus $subMenus): static
     {
+        // Ajoutez l'objet SubMenus à la collection
         if (!$this->subMenuses->contains($subMenus)) {
             $this->subMenuses->add($subMenus);
             $subMenus->setMenu($this);
@@ -144,14 +136,17 @@ class Menu
         return $this;
     }
 
-    public function removeSubMenus(SubMenus $subMenus): static
-    {
-        if ($this->subMenuses->removeElement($subMenus)) {
-            // set the owning side to null (unless already changed)
+    
+        public function removeSubMenus(SubMenus $subMenus): static
+        {
+            // Remove the SubMenus object from the collection
+            $this->subMenuses->removeElement($subMenus);
+        
+            // Set the owning side of the relationship to null (unless already changed)
             if ($subMenus->getMenu() === $this) {
                 $subMenus->setMenu(null);
             }
+            return $this;
         }
-        return $this;
-    }
+    
 }

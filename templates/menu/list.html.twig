@@ -16,15 +16,16 @@
     {% for menu in menus %}
         <li>
             <strong>Nom du menu :</strong> {{ menu.name }}<br>
-            <strong>Liens :</strong> {{ menu.link }}<br>
-            <strong>Sous-menus :</strong>
-            <ul>
-                {% for subMenu in menu.subMenuses %}
-                    <li>
-                        {{ subMenu.name }}
-                    </li>
-                {% endfor %}
-            </ul>
+            {% if menu.subMenuses is not empty %}
+                <strong>Sous-menus :</strong>
+                <ul>
+                    {% for subMenu in menu.subMenuses %}
+                        <li>
+                            {{ subMenu.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </li>
     {% endfor %}
 </ul>
