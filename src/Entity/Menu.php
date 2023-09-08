@@ -21,8 +21,6 @@ class Menu
     #[ORM\Column(nullable: true)]
     private ?int $menuOrder = null;
 
-
-
     #[ORM\Column]
     private ?bool $isVisible = null;
 
@@ -35,7 +33,8 @@ class Menu
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $link = null;
 
-    #[ORM\OneToMany(mappedBy: 'menu_id', targetEntity: SubMenus::class)]
+    // menu => menu_id
+    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: SubMenus::class)]
     private Collection $subMenuses;
 
     public function __construct()
@@ -128,7 +127,6 @@ class Menu
 
     public function addSubMenus(SubMenus $subMenus): static
     {
-        // Ajoutez l'objet SubMenus à la collection
         if (!$this->subMenuses->contains($subMenus)) {
             $this->subMenuses->add($subMenus);
             $subMenus->setMenu($this);
@@ -136,17 +134,18 @@ class Menu
         return $this;
     }
 
+    public function getSubMenuses(): Collection
+    {
+        return $this->subMenuses;
+    }
     
-        public function removeSubMenus(SubMenus $subMenus): static
-        {
-            // Remove the SubMenus object from the collection
-            $this->subMenuses->removeElement($subMenus);
-        
-            // Set the owning side of the relationship to null (unless already changed)
-            if ($subMenus->getMenu() === $this) {
-                $subMenus->setMenu(null);
-            }
-            return $this;
+    public function removeSubMenus(SubMenus $subMenus): static
+    {
+        $this->subMenuses->removeElement($subMenus);
+    
+        if ($subMenus->getMenu() === $this) {
+            $subMenus->setMenu(null);
         }
-    
+        return $this;
+    }
 }

@@ -11,7 +11,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 
 
 class MenuCrudController extends AbstractCrudController
@@ -31,10 +30,12 @@ class MenuCrudController extends AbstractCrudController
     {
         yield TextField::new('name', 'Nom du menu');
         yield NumberField::new('menuOrder', 'Ordre');
-        yield ChoiceField::new('subMenuses', 'Sous-menus', SubMenus::class)
-            ->allowMultipleChoices()
+        yield AssociationField::new('subMenuses', 'Sous-menus', SubMenus::class)
             ->autocomplete()
-            ->setFormTypeOptions(['multiple' => true], ['expanded' => true]);
+            ->setFormTypeOptions([
+                'multiple' => true,
+                'by_reference' => false, // Important pour les relations one-to-many
+            ]);
         yield AssociationField::new('article', 'Article lié', Article::class);
         yield AssociationField::new('category', 'Catégorie liée', Category::class);
         yield TextField::new('link', 'Lien');

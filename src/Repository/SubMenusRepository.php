@@ -20,34 +20,16 @@ class SubMenusRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, SubMenus::class);
     }
-
-    // public function findAllAsArray()
-    // {
-    //     $query = $this->createQueryBuilder('s')
-    //         ->getQuery();
-    //     return $query->getArrayResult();
-    // }
-
-    // TEST
+    
    /**
     * @return SubMenus[] Returns an array of SubMenus objects
     */
    public function subMenusByName(): array
    {
        return $this->createQueryBuilder('s')
-        //    ->orderBy('s.id', 'ASC')
+        //    ->orderBy('s.id', 'ASC') //Pour avoir un ordre
            ->getQuery()
            ->getResult()
        ;
    }
-// TEST
-//    public function toArray()
-// {
-//     return [
-//         'id' => $this->getId(),
-//         'name' => $this->name,
-//         'collection_objects' => $this->collection_objects->toArray()
-//     ];
-// }
-
 }

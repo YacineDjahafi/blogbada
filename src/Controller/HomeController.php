@@ -18,12 +18,11 @@ class HomeController extends AbstractController
         MenuRepository $menuRepository, SubMenusRepository $subMenusRepository
         ): Response
     {
-        // Supposons que $menuName contienne le nom du menu que vous recherchez
-        $menuName = 'NomDuMenu'; // Remplacez cela par la valeur souhaitée
-
-    // Utilisez $menuName comme paramètre pour la méthode findByName
-        $subMenus = $subMenusRepository->findByName($menuName);
         
+        $menuName = 'NomDuMenu'; 
+    // $menuName comme paramètre pour la méthode findByName
+        $subMenus = $subMenusRepository->findByName($menuName);
+
         return $this->render('home/index.html.twig', [
             'articles' => $articleRepo->findAll(),
             'categories' => $categoryrepo->findAll(),
