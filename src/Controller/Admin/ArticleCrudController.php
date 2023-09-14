@@ -16,17 +16,20 @@ class ArticleCrudController extends AbstractCrudController
     {
         return Article::class;
     }
-    
+
     public function configureFields(string $pageName): iterable
     {
-            yield TextField::new('title');
-            yield SlugField::new('slug')->setTargetFieldName('title');
-            yield AssociationField::new('categories');
-            yield TextEditorField::new('content');
-            yield TextField::new('featuredText');
-            // yield AssociationField::new('featuredImage');
-            yield DateTimeField::new('createdAt')->hideOnForm();
-            yield DateTimeField::new('updatedAt')->hideOnForm();
+        yield TextField::new('title');
+        yield SlugField::new('slug')->setTargetFieldName('title');
+        yield AssociationField::new('categories');
+        yield TextEditorField::new('content');
+        yield TextField::new('featuredText');
+        yield AssociationField::new('featuredImage');
+            // ->setFormTypeOptions([
+            //     'multiple' => true,
+            // 'by_reference' => false, // Important pour les relations one-to-many
+            // ])
+        yield DateTimeField::new('createdAt')->hideOnForm();
+        yield DateTimeField::new('updatedAt')->hideOnForm();
     }
-   
 }

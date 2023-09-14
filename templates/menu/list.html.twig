@@ -1,35 +1,46 @@
-<nav class="py-2 bg-dark border-bottom">
-            <div class="container d-flex flex-wrap">
+{# TEMOIN A SUPPRIMER #}
 
-                <div class="dropdown">
-                    <a class="nav nav-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Badaboum Theatre
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
-                        <li><a class="dropdown-item" href="{{path('admin')}}">Tableau de bord</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-{# TEST #}
-<ul>
-    {% for menu in menus %}
-        <li>
-            <strong>Nom du menu :</strong> {{ menu.name }}<br>
-            {% if menu.subMenuses is not empty %}
-                <strong>Sous-menus :</strong>
-                <ul>
-                    {% for subMenu in menu.subMenuses %}
-                        <li>
-                            {{ subMenu.name }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </li>
-    {% endfor %}
+<ul class="bg-dark dropdown d-flex">
+	{% for menu in menus %}
+		<li class="nav nav-link dropdown-toggle text-white">
+			{{ menu.name }}
+			{% if menu.subMenuses is not empty %}
+				<ul>
+					{% for subMenu in menu.subMenuses %}
+						<li>
+							<a href="">
+								{{ subMenu.name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
 </ul>
 
+
+
+{# TEST #}
+{# <nav class="py-2 bg-dark border-bottom"> #}
+{#	<div class="container d-flex flex-wrap"> <ul class="dropdown d-flex">
+		{% for menu in menus %}
+			<li class="nav nav-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<a href="  {{ menu.link}}  ">{{ menu.name }}</a>
+
+				{% if menu.subMenuses is not empty %}
+					<ul class="dropdown-menu">
+						{% for subMenu in menu.subMenuses %}
+							<li>
+								<a class="dropdown-item" href=" {{ subMenu.link }} ">{{ subMenu.name }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+</div> #}
+{# </nav> #}
 
 
 
@@ -63,14 +74,14 @@
         {% endfor %}
     </ul> #}
 
-    {# {% if subMenu in menu.subMenus %}
+{# {% if subMenu in menu.subMenus %}
                     {% for subMenu in menu.subMenus %}
                     <li class="nav-item">
                         <a href="#" class="nav-link text-dark" aria-current="page"> Se connecter </a>
                     </li>
                     {% endfor %}
                     {% endif %} #}
-                    {#  <li>
+{#  <li>
                 <strong>Nom :</strong> {{ menu.name }}<br>
                 <strong>Ordre :</strong> {{ menu.menuOrder }}<br>
                 <ul>

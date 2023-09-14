@@ -1,87 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Badaboum Théâtre - {% block title %}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {# NAV BAR #}
-        <nav class="py-2 bg-dark border-bottom">
-            <div class="container d-flex flex-wrap">
-
-                <div class="dropdown">
-                    <a class="nav nav-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Badaboum Theatre
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
-                        <li><a class="dropdown-item" href="{{path('admin')}}">Tableau de bord</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        {# FIN DE NAV BAR ADMIN #}
-
-        {# {% include "/blogbada/templates/widget/menus.html.twig" %} #}
-        {# NAV BAR PUBLIC #}
-
-        
-       {#  <nav>
-            <ul class="main-menu">
-                 {% for menu in menus %}
-                    <li>
-                        <a href="{{ menu.link }}">{{ menu.name }}</a>
-                        {% if menu.subMenus is not empty %}
-                            <ul class="sub-menu">
-                                {% for subMenu in menu.subMenus %}
-                                    <li><a href="{{ path('category_show', {'id': subMenu.category.id}) }}">{{ subMenu.category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
-        </nav>  #}
-{# NAV PUBLIC #}
+	<head>
+		<meta charset="UTF-8">
+		<title>Badaboum Théâtre -
+			{% block title %}{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
 
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="{{path('app_home')}}">
-                    <span class="fs-4">Mon site</span>
-                </a>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+			{# <link rel="stylesheet" href=" {{ asset('css/') }}"> #}
+		{% endblock %}
 
-                <ul class="nav nav-pills align-items-center">
-                    <li class="nav-item">
-                        <a href="{{path('app_register')}}" class="nav-link text-dark" aria-current="page"> S'inscrire </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{path('app_login')}}" class="nav-link text-dark" aria-current="page"> Se connecter </a>
-                    </li>
-                </ul>
-            </header>
-        </div>
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
 
-        
-        {% block body %}{% endblock %}
+		{# NAVBAR ADMIN #}
+		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+			<nav class="py-2 bg-dark border-bottom">
+				<div class="container d-flex flex-wrap">
+
+					<div class="dropdown">
+						<a class="nav nav-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Badaboum Theatre
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
+							<li>
+								<a class="dropdown-item" href="{{path('admin')}}">Tableau de bord</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		{% endif %}
+		{# FIN DE NAVBAR ADMIN #}
+
+		{# NAVBAR PUBLIC #}
+		{{ include ('menu/list.html.twig') }}
+		{# FIN DE NAVBAR PUBLIC #}
+
+		{# {{ include('header/header.html.twig') }} #}
+
+		{#  <nav>
+						<ul class="main-menu">
+								{% for menu in menus %}
+								<li>
+									<a href="{{ menu.link }}">{{ menu.name }}</a>
+									{% if menu.subMenus is not empty %}
+										<ul class="sub-menu">
+											{% for subMenu in menu.subMenus %}
+												<li><a href="{{ path('category_show', {'id': subMenu.category.id}) }}">{{ subMenu.category.name }}</a></li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
+					</nav>  #}
+		{# NAV PUBLIC #}
 
 
-
-
-
-    {# FOOTER #}
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <span class="copyright">© {{ 'now'|date('Y') }}  -  Crée par Yacine Djahafi. Tous droits réservés.</span>
-            </div>
-        </footer>
-    {# FIN DE FOOTER #}
-    </body>
-</html>
+			<ul class="nav nav-pills align-items-center"> {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+				<li class="nav-item">
+					<a href="{{path('app_register')}}" class="nav-link text-dark" aria-current="page">
+						S'inscrire
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{path('app_login')}}" class="nav-link text-dark" aria-current="page">
+						Se connecter
+					</a>
+				</li>
+			{% else %}
+				<div class="dropdown">
+					<a class="nav nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ app.user.username|capitalize }}
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+						</li>
+					</ul>
+				</div>
+			{% endif %}
+		</header>
+	</body>
+</html></div>{% block body %}{% endblock %}{# FOOTER #}<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+<div class="col-md-4 d-flex align-items-center">
+	<span class="copyright">©
+		{{ 'now'|date('Y') }}
+		-  Crée par Yacine Djahafi. Tous droits réservés.</span>
+</div></footer>{# FIN DE FOOTER #}</body></html>

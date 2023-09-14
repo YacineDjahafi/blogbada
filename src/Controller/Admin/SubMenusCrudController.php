@@ -19,9 +19,9 @@ class SubMenusCrudController extends AbstractCrudController
 
     public function __construct(
         private SubMenusRepository $subMenusRepository
-    ){
-     }
-    
+    ) {
+    }
+
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('name', 'Nom du sous menu');
@@ -31,5 +31,4 @@ class SubMenusCrudController extends AbstractCrudController
         yield TextField::new('link', 'Lien');
         yield BooleanField::new('isVisible', 'Visible');
     }
-    
 }

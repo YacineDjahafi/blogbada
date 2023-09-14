@@ -44,10 +44,14 @@ class Article implements TimestampedInterface
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Menu::class)]
     private Collection $no;
 
+    #[ORM\ManyToMany(targetEntity: Media::class)]
+    private Collection $relatedImages;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->no = new ArrayCollection();
+        $this->relatedImages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -198,5 +202,29 @@ class Article implements TimestampedInterface
     public function __toString()
     {
         return $this->title;
+    }
+
+    /**
+     * @return Collection<int, Media>
+     */
+    public function getRelatedImages(): Collection
+    {
+        return $this->relatedImages;
+    }
+
+    public function addRelatedImage(Media $relatedImage): static
+    {
+        if (!$this->relatedImages->contains($relatedImage)) {
+            $this->relatedImages->add($relatedImage);
+        }
+
+        return $this;
+    }
+
+    public function removeRelatedImage(Media $relatedImage): static
+    {
+        $this->relatedImages->removeElement($relatedImage);
+
+        return $this;
     }
 }

@@ -14,13 +14,14 @@ class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
     public function index(
-        ArticleRepository $articleRepo, CategoryRepository $categoryrepo, 
-        MenuRepository $menuRepository, SubMenusRepository $subMenusRepository
-        ): Response
-    {
-        
-        $menuName = 'NomDuMenu'; 
-    // $menuName comme paramètre pour la méthode findByName
+        ArticleRepository $articleRepo,
+        CategoryRepository $categoryrepo,
+        MenuRepository $menuRepository,
+        SubMenusRepository $subMenusRepository
+    ): Response {
+
+        $menuName = 'NomDuMenu';
+        // $menuName comme paramètre pour la méthode findByName
         $subMenus = $subMenusRepository->findByName($menuName);
 
         return $this->render('home/index.html.twig', [

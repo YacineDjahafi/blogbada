@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{# {% set article = entity %} #}
-
-{% block title %}{{article.title}}{% endblock %}
+{% block title %}
+	{{article.title}}
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
-    <h1>{{article.title}}</h1>
-    <hr>
-
-    {{article.content|raw}}
-</div>
+	<div class="container">
+		<h1>{{article.title}}</h1>
+		<hr>
+		<img src="/uploads/{{ article.featuredImage.filename }}" alt="{{ article.featuredImage.altText}}" loading="lazy" width="{{300}}" height="300">
+		{{article.content|raw}}
+	</div>
 
 
 {% endblock %}
