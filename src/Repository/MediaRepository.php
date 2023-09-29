@@ -24,12 +24,12 @@ class MediaRepository extends ServiceEntityRepository
 //    /**
 //     * @return Media[] Returns an array of Media objects
 //     */
-//    public function findByExampleField($value): array
+//    public function findByName($name): array
 //    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
+//        return $this->createQueryBuilder('img')
+//            ->andWhere('img.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('m.id', 'ASC')
+//            ->orderBy('img.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()

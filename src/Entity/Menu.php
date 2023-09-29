@@ -69,7 +69,7 @@ class Menu
         return $this;
     }
 
-   
+
 
     public function isIsVisible(): ?bool
     {
@@ -123,7 +123,7 @@ class Menu
         return $this->name;
     }
 
-  
+
 
     public function addSubMenus(SubMenus $subMenus): static
     {
@@ -138,11 +138,11 @@ class Menu
     {
         return $this->subMenuses;
     }
-    
+
     public function removeSubMenus(SubMenus $subMenus): static
     {
         $this->subMenuses->removeElement($subMenus);
-    
+
         if ($subMenus->getMenu() === $this) {
             $subMenus->setMenu(null);
         }

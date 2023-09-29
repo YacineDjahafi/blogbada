@@ -22,6 +22,9 @@ class Media
     #[ORM\Column(length: 255)]
     private ?string $filename = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $media_order = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,23 @@ class Media
     public function setFilename(string $filename): static
     {
         $this->filename = $filename;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    public function getMediaOrder(): ?int
+    {
+        return $this->media_order;
+    }
+
+    public function setMediaOrder(?int $media_order): static
+    {
+        $this->media_order = $media_order;
 
         return $this;
     }

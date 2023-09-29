@@ -13,7 +13,7 @@ class CategoryController extends AbstractController
     public function show(?Category $category): Response
     {
         // Si on a pas de catégorie
-        if (!$category){
+        if (!$category) {
             // On redirige sur la page d'accueil
             return $this->redirectToRoute('home');
         }

@@ -4,26 +4,25 @@
 
 {% block body %}
 
-    <main class="container">
-                <div class="row">
+{#     <main>
+                <div>
 
-                    <div class="col-md-8">
-                        <h3 class="pb-4 mb-4 fst-italic border-bottom">Articles récents </h3> 
+                    <div>
+                        <h3>Articles récents </h3> 
                         <div id="article-list">
                     {% include 'article/list.html.twig' with { articles: articles, leftCol: 5, rightCol: 7 } %}
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="position-sticky" style="top: 2rem;">
+                    <div>
+                        <div">
                             {% include "widget/about.html.twig" %}
                             {% include "widget/categories.html.twig" %}
-                            {% include "menu/list.html.twig" %}
                         </div>
                     </div>
 
                 </div>
 
     </div>
-
+ #}
 {% endblock %}

@@ -18,14 +18,14 @@ class MenuCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Menu::class;
-    }   
+    }
 
     public function __construct(
         private MenuRepository $menuRepository,
         private SubMenusRepository $subMenusRepository
-        ){
-        }
-    
+    ) {
+    }
+
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('name', 'Nom du menu');
@@ -41,6 +41,4 @@ class MenuCrudController extends AbstractCrudController
         yield TextField::new('link', 'Lien');
         yield BooleanField::new('isVisible', 'Visible');
     }
-
-
 }

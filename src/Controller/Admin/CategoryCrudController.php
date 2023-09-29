@@ -20,12 +20,12 @@ class CategoryCrudController extends AbstractCrudController
     {
         return $crud->setPageTitle(Crud::PAGE_INDEX, 'Catégories');
     }
-    
+
 
     public function configureFields(string $pageName): iterable
     {
-            yield TextField::new('name');
-            yield SlugField::new('slug')->setTargetFieldName('name');
-            yield ColorField::new('color');
+        yield TextField::new('name');
+        yield SlugField::new('slug')->setTargetFieldName('name');
+        yield ColorField::new('color');
     }
 }

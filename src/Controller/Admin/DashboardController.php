@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Media;
 use App\Entity\Menu;
 use App\Entity\SubMenus;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -25,7 +26,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         $url = $this->adminUrlGenerator->setController(ArticleCrudController::class)
-        ->generateUrl();
+            ->generateUrl();
         return $this->redirect($url);
     }
 
@@ -52,6 +53,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Sous Menus', 'fas fa-list')->setSubItems([
             MenuItem::linkToCrud('Afficher les sous menus', 'fas fa-list', SubMenus::class),
             MenuItem::linkToCrud('Ajouter un sous menus', 'fas fa-plus', SubMenus::class)->setAction(Crud::PAGE_NEW),
+        ]);
+
+        yield MenuItem::subMenu('Médias', 'fas fa-list')->setSubItems([
+            MenuItem::linkToCrud('Médiathèque', 'fas fa-list', Media::class),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus', Media::class)->setAction(Crud::PAGE_NEW),
         ]);
     }
 }
