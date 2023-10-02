@@ -9,89 +9,38 @@
 
 
 		{% block stylesheets %}
-			{{ encore_entry_link_tags('app') }}
-			{# <link rel="stylesheet" href=" {{ asset('css/') }}"> #}
+			<link rel="stylesheet" href=" {{ asset('/css/header.css') }}">
+			<link rel="stylesheet" href=" {{ asset('/css/footer.css') }}">
 		{% endblock %}
 
 		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
 	<body>
 
-		{# NAVBAR ADMIN #}
+		{# NAVBAR ADMIN || METTRE DANS LA NAV #}
 		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-			<nav class="py-2 bg-dark border-bottom">
-				<div class="container d-flex flex-wrap">
-
-					<div class="dropdown">
-						<a class="nav nav-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Badaboum Theatre
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
-							<li>
-								<a class="dropdown-item" href="{{path('admin')}}">Tableau de bord</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		{% endif %}
+					<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
+				{% endif %}
 		{# FIN DE NAVBAR ADMIN #}
 
 		{# NAVBAR PUBLIC #}
-		{{ include ('menu/list.html.twig') }}
+		{# {{ include ('menu/list.html.twig') }} #}
 		{# FIN DE NAVBAR PUBLIC #}
 
-		{# {{ include('header/header.html.twig') }} #}
 
-		{#  <nav>
-						<ul class="main-menu">
-								{% for menu in menus %}
-								<li>
-									<a href="{{ menu.link }}">{{ menu.name }}</a>
-									{% if menu.subMenus is not empty %}
-										<ul class="sub-menu">
-											{% for subMenu in menu.subMenus %}
-												<li><a href="{{ path('category_show', {'id': subMenu.category.id}) }}">{{ subMenu.category.name }}</a></li>
-											{% endfor %}
-										</ul>
-									{% endif %}
-								</li>
-							{% endfor %}
-						</ul>
-					</nav>  #}
-		{# NAV PUBLIC #}
-
-
-			<ul class="nav nav-pills align-items-center"> {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-				<li class="nav-item">
-					<a href="{{path('app_register')}}" class="nav-link text-dark" aria-current="page">
-						S'inscrire
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="{{path('app_login')}}" class="nav-link text-dark" aria-current="page">
-						Se connecter
-					</a>
-				</li>
-			{% else %}
-				<div class="dropdown">
-					<a class="nav nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						{{ app.user.username|capitalize }}
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
-						</li>
-					</ul>
-				</div>
-			{% endif %}
 		</header>
+
+		{% block body %}
+		
+		{% endblock %}
+
+
+		{# FOOTER #}
+		
+		{% include "widget/footer.html.twig" %}
+
+		
+		
 	</body>
-</html></div>{% block body %}{% endblock %}{# FOOTER #}<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-<div class="col-md-4 d-flex align-items-center">
-	<span class="copyright">©
-		{{ 'now'|date('Y') }}
-		-  Crée par Yacine Djahafi. Tous droits réservés.</span>
-</div></footer>{# FIN DE FOOTER #}</body></html>
+</html>

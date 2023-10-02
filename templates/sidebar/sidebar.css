@@ -1,0 +1,11 @@
+.sidebar{
+    position: fixed;
+    z-index: 5;
+    top: 20%;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.911);
+    box-shadow: 2px 2px 2px #6b6b6bb0;
+    padding: 0.4rem;
+    display: grid;
+    border-radius: 5px;
+}

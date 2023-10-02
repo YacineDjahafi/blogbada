@@ -24,17 +24,11 @@ class Menu
     #[ORM\Column]
     private ?bool $isVisible = null;
 
-    #[ORM\ManyToOne(inversedBy: 'no')]
-    private ?Article $article = null;
-
-    #[ORM\ManyToOne]
-    private ?Category $category = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $link = null;
 
     // menu => menu_id
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: SubMenus::class)]
+    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: SubMenus::class, cascade: ['persist', 'remove'])]
     private Collection $subMenuses;
 
     public function __construct()
@@ -69,8 +63,6 @@ class Menu
         return $this;
     }
 
-
-
     public function isIsVisible(): ?bool
     {
         return $this->isVisible;
@@ -81,30 +73,6 @@ class Menu
         $this->isVisible = $isVisible;
         return $this;
     }
-
-    public function getArticle(): ?Article
-    {
-        return $this->article;
-    }
-
-    public function setArticle(?Article $article): static
-    {
-        $this->article = $article;
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): static
-    {
-        $this->category = $category;
-        return $this;
-    }
-
-
 
     public function getLink(): ?string
     {

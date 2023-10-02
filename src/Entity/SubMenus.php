@@ -25,13 +25,7 @@ class SubMenus
     #[ORM\Column(length: 255)]
     private ?string $link = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Article $article = null;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Category $category = null;
-    
-    #[ORM\ManyToOne(targetEntity: Menu::class, inversedBy: 'subMenuses')]
+    #[ORM\ManyToOne(targetEntity: Menu::class, inversedBy: 'subMenuses', cascade: ["persist", "remove"])]
     #[ORM\JoinColumn(name: 'menu_id', referencedColumnName: 'id')]
     private ?Menu $menu = null;
 
@@ -84,30 +78,6 @@ class SubMenus
     public function setLink(string $link): static
     {
         $this->link = $link;
-
-        return $this;
-    }
-
-    public function getArticle(): ?Article
-    {
-        return $this->article;
-    }
-
-    public function setArticle(?Article $article): static
-    {
-        $this->article = $article;
-
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): static
-    {
-        $this->category = $category;
 
         return $this;
     }

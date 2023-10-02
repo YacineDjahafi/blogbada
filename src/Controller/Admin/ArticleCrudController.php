@@ -23,7 +23,11 @@ class ArticleCrudController extends AbstractCrudController
         yield SlugField::new('slug')->setTargetFieldName('title');
         yield AssociationField::new('categories');
         yield TextEditorField::new('content');
+        yield TextEditorField::new('dates');
+        yield TextEditorField::new('age');
+        yield TextEditorField::new('duration');
         yield TextField::new('featuredText');
+        // Faire Carousel d'image
         yield AssociationField::new('featuredImage');
             // ->setFormTypeOptions([
             //     'multiple' => true,

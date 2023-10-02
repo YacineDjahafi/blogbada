@@ -47,6 +47,18 @@ class Article implements TimestampedInterface
     #[ORM\ManyToMany(targetEntity: Media::class)]
     private Collection $relatedImages;
 
+    #[ORM\Column(length: 100)]
+    private ?string $dates = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $age = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $duration = null;
+
+    #[ORM\Column]
+    private ?bool $isVisible = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -177,28 +189,7 @@ class Article implements TimestampedInterface
     {
         return $this->no;
     }
-
-    public function addNo(Menu $no): static
-    {
-        if (!$this->no->contains($no)) {
-            $this->no->add($no);
-            $no->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNo(Menu $no): static
-    {
-        if ($this->no->removeElement($no)) {
-            // set the owning side to null (unless already changed)
-            if ($no->getArticle() === $this) {
-                $no->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
+   
     public function __toString()
     {
         return $this->title;
@@ -224,6 +215,54 @@ class Article implements TimestampedInterface
     public function removeRelatedImage(Media $relatedImage): static
     {
         $this->relatedImages->removeElement($relatedImage);
+
+        return $this;
+    }
+
+    public function getDates(): ?string
+    {
+        return $this->dates;
+    }
+
+    public function setDates(string $dates): static
+    {
+        $this->dates = $dates;
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(string $age): static
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getDuration(): ?string
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(string $duration): static
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function isIsVisible(): ?bool
+    {
+        return $this->isVisible;
+    }
+
+    public function setIsVisible(bool $isVisible): static
+    {
+        $this->isVisible = $isVisible;
 
         return $this;
     }

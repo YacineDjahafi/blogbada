@@ -36,8 +36,6 @@ class MenuCrudController extends AbstractCrudController
                 'multiple' => true,
                 'by_reference' => false, // Important pour les relations one-to-many
             ]);
-        yield AssociationField::new('article', 'Article lié', Article::class);
-        yield AssociationField::new('category', 'Catégorie liée', Category::class);
         yield TextField::new('link', 'Lien');
         yield BooleanField::new('isVisible', 'Visible');
     }
