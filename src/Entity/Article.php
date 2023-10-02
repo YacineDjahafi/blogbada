@@ -59,6 +59,9 @@ class Article implements TimestampedInterface
     #[ORM\Column]
     private ?bool $isVisible = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $article_order = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -263,6 +266,18 @@ class Article implements TimestampedInterface
     public function setIsVisible(bool $isVisible): static
     {
         $this->isVisible = $isVisible;
+
+        return $this;
+    }
+
+    public function getArticleOrder(): ?int
+    {
+        return $this->article_order;
+    }
+
+    public function setArticleOrder(?int $article_order): static
+    {
+        $this->article_order = $article_order;
 
         return $this;
     }

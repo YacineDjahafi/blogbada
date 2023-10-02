@@ -14,3 +14,19 @@
     </div>
 
 {% endblock %}
+
+
+{# {% for article in articles %}
+    {% set background_image_url = '' %}
+    {% if article.order == 1 and article.featured_image_id is not empty %}
+        {% for media in mediaList %}
+            {% if article.featured_image_id == media.id %}
+                {% set background_image_url = asset('media/' ~ media.filename) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    
+    <div class="article" style="{% if background_image_url %}background-image: url('{{ background_image_url }}');{% endif %}">
+        <!-- Contenu de l'article ici -->
+    </div>
+{% endfor %} #}
