@@ -39,13 +39,13 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToRoute('Aller sur le site', 'fa fa-undo', 'app_home');
-        yield MenuItem::subMenu('Articles', 'fas fa-newspaper')->setSubItems([
-            MenuItem::linkToCrud('Tous les articles', 'fas fa-list', Article::class),
-            MenuItem::linkToCrud('Créer un article', 'fas fa-plus', Article::class)->setAction(Crud::PAGE_NEW),
+        yield MenuItem::subMenu('Spectacles', 'fas fa-newspaper')->setSubItems([
+            MenuItem::linkToCrud('Tous les spectacles', 'fas fa-list', Article::class),
+            MenuItem::linkToCrud('Créer un spectacle', 'fas fa-plus', Article::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class),
         ]);
 
-        yield MenuItem::subMenu('Menus', 'fas fa-list')->setSubItems([
+        yield MenuItem::subMenu('Navigation (menu)', 'fas fa-list')->setSubItems([
             MenuItem::linkToCrud('Mes Menus', 'fas fa-newspaper', Menu::class),
             MenuItem::linkToCrud('Ajouter un Menu', 'fas fa-plus', Menu::class)->setAction(Crud::PAGE_NEW),
         ]);

@@ -15,14 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     #[Route('/article/{slug}', name: 'article_show')]
-    public function show(
-        ?Article $article,
+    public function show(?Article $article,
         ArticleRepository $articleRepo,
         CategoryRepository $categoryrepo,
         MenuRepository $menuRepository,
         SubMenusRepository $subMenusRepository,
         MediaRepository $mediaRepository,
-    ): Response {
+        ): Response
+    {
         $menuName = 'NomDuMenu';
         // $menuName comme paramètre pour la méthode findByName
         $subMenus = $subMenusRepository->findByName($menuName);

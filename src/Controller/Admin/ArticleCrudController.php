@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -23,7 +25,12 @@ class ArticleCrudController extends AbstractCrudController
         yield SlugField::new('slug')->setTargetFieldName('title');
         yield AssociationField::new('categories');
         yield TextEditorField::new('content');
+        yield TextEditorField::new('dates');
+        yield TextEditorField::new('age');
+        yield TextEditorField::new('duration');
+        yield NumberField::new('article_order', 'Ordre');
         yield TextField::new('featuredText');
+        // Faire Carousel d'image
         yield AssociationField::new('featuredImage');
             // ->setFormTypeOptions([
             //     'multiple' => true,
@@ -31,5 +38,6 @@ class ArticleCrudController extends AbstractCrudController
             // ])
         yield DateTimeField::new('createdAt')->hideOnForm();
         yield DateTimeField::new('updatedAt')->hideOnForm();
+        yield BooleanField::new('isVisible', 'Visible');
     }
 }

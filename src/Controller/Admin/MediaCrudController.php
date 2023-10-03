@@ -6,6 +6,7 @@ use App\Entity\Media;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class MediaCrudController extends AbstractCrudController
@@ -30,6 +31,8 @@ class MediaCrudController extends AbstractCrudController
         if (Crud::PAGE_EDIT == $pageName) {
             $imageField->setRequired(false);
         }
+        
+        yield NumberField::new('media_order', 'Ordre');
 
         yield TextField::new('altText', 'Texte alternatif');
         yield $imageField;

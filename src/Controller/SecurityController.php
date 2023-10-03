@@ -27,7 +27,7 @@ class SecurityController extends AbstractController
         $subMenus = $subMenusRepository->findByName($menuName);
         if ($this->getUser()) {
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('admin');
         }
 
         // get the login error if there is one

@@ -1,0 +1,74 @@
+{# <link href="{{ asset('/assets/css/style-api.css') }}" type="text/css" rel="stylesheet"> #}
+{# A GARDER #}
+
+{# <ul class="bg-dark dropdown d-flex">
+	{% for menu in menus %}
+		<li class="nav nav-link dropdown-toggle text-white">
+			{{ menu.name }}
+			{% if menu.subMenuses is not empty %}
+				<ul>
+					{% for subMenu in menu.subMenuses %}
+						<li>
+							<a href="">
+								{{ subMenu.name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>
+ #}
+{# TEST #}
+
+<div class="navbar">
+          <div class="logo-container">
+            <h3 class="logo">Badaboum<span>THÉÂTRE</span></h3>
+          </div>
+  
+          <div class="nav-btn">
+            <div class="nav-links">
+              <ul>
+                {% for menu in menus %}
+                <li class="nav-link" style="--i: 0.6s">
+                  <a href="
+                  {# METTRE LIEN MENU #}
+                  {# {{ menu.link }} #}
+                  ">{{ menu.name }}</a>
+                    {% if menu.subMenuses is not empty %}
+                
+                <div class="dropdown">
+                    <ul>
+                    {% for subMenu in menu.subMenuses %}
+                        <li class="dropdown-link">
+                            <a href="
+                            {{ subMenu.link }}
+                            ">{{ subMenu.name }}</a>
+                            </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+
+{# <ul class="bg-dark dropdown d-flex">
+	{% for menu in menus %}
+		<li class="nav nav-link dropdown-toggle text-white">
+			{{ menu.name }}
+			{% if menu.subMenuses is not empty %}
+				<ul>
+					{% for subMenu in menu.subMenuses %}
+						<li>
+							<a href="">
+								{{ subMenu.name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul> #}
+
+
+

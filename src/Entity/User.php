@@ -29,8 +29,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-/*     #[ORM\Column(length: 255)]
-    private ?string $email = null; */
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
 
     public function getId(): ?int
     {
@@ -102,7 +102,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-/*     public function getEmail(): ?string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -112,5 +112,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->email = $email;
 
         return $this;
-    } */
+    }
 }

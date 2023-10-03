@@ -30,7 +30,7 @@ class MenuRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    // Trouver submenus liés à un menu
+    // TEST ULTIME
     public function findByName(string $name): array
     {
         $qb = $this->createQueryBuilder('m')

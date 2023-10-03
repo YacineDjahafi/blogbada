@@ -9,61 +9,38 @@
 
 
 		{% block stylesheets %}
-			{# <link rel="stylesheet" href=" {{ asset('css/') }}"> #}
+		 	<link rel="stylesheet" href=" {{ asset('/css/header.css') }}">
+			<link rel="stylesheet" href=" {{ asset('/css/footer.css') }}">
 		{% endblock %}
 
-		{% block javascripts %}{% endblock %}
+		{% block javascripts %}
+		{% endblock %}
 	</head>
 	<body>
 
-		{# NAVBAR ADMIN #}
+		{# NAVBAR ADMIN || METTRE DANS LA NAV #}
 		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-			<nav class="py-2 bg-dark border-bottom">
-				<div class="container d-flex flex-wrap">
-
-					<div class="dropdown">
-						<a class="nav nav-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Badaboum Theatre
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
-							<li>
-								<a class="dropdown-item" href="{{path('admin')}}">Tableau de bord</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		{% endif %}
+					<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
+				{% endif %}
 		{# FIN DE NAVBAR ADMIN #}
 
 		{# NAVBAR PUBLIC #}
-		{{ include ('menu/nav.html.twig') }}
+		{# {{ include ('menu/list.html.twig') }} #}
 		{# FIN DE NAVBAR PUBLIC #}
-	</body>
-</html></header>{% block body %}{% endblock %}{# FOOTER #}{# CONNEXION #}<ul>
-{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-	<li>
-		<a href="{{path('app_register')}}" aria-current="page">S'inscrire</a>
-	</li>
-	<li>
-		<a href="{{path('app_login')}}" aria-current=" page">Se connecter</a>
-	</li>
-{% else %}
-	<div>
-		<a href="#" role="button" aria-expanded="false">
-			{{ app.user.username|capitalize }}
-		</a>
-		<ul>
-			<li><ahref="{{path('app_logout')}}">Déconnexion</a></li>
-		</ul>
-	</div>
-{% endif %}
 
-<footer>
-	<div>
-		<span>©
-			{{ 'now'|date('Y') }}
-			-  Crée par Yacine Djahafi. Tous droits réservés.</span>
-	</div>
-</footer>
-{# FIN DE FOOTER #}</body></html>
+
+		</header>
+
+		{% block body %}
+		
+		{% endblock %}
+
+
+		{# FOOTER #}
+		
+		{% include "widget/footer.html.twig" %}
+
+		
+		
+	</body>
+</html>

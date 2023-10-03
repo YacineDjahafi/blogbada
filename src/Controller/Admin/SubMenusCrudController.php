@@ -26,8 +26,6 @@ class SubMenusCrudController extends AbstractCrudController
     {
         yield TextField::new('name', 'Nom du sous menu');
         yield NumberField::new('submenu_order', 'Ordre');
-        yield AssociationField::new('article', 'Article lié', Article::class);
-        yield AssociationField::new('category', 'Catégorie liée', Category::class);
         yield TextField::new('link', 'Lien');
         yield BooleanField::new('isVisible', 'Visible');
     }

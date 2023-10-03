@@ -4,11 +4,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
-use App\Repository\ArticleRepository;
-use App\Repository\CategoryRepository;
-use App\Repository\MediaRepository;
-use App\Repository\MenuRepository;
-use App\Repository\SubMenusRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,20 +15,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RegistrationController extends AbstractController
 {
     #[Route('/register', name: 'app_register')]
-    public function register(
-        Request $request, 
-        UserPasswordHasherInterface $userPasswordHasher, 
-        EntityManagerInterface $entityManager,
-        ArticleRepository $articleRepo,
-        CategoryRepository $categoryrepo,
-        MenuRepository $menuRepository,
-        SubMenusRepository $subMenusRepository,
-        MediaRepository $mediaRepository,
-        ): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        $menuName = 'NomDuMenu';
-        // $menuName comme paramètre pour la méthode findByName
-        $subMenus = $subMenusRepository->findByName($menuName);
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -56,12 +39,6 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
-            // 'article' => $article,
-            // 'articles' => $articleRepo->findAll(),
-            // 'categories' => $categoryrepo->findAll(),
-            'menus' => $menuRepository->findAll(),
-            'subMenuses' => $subMenus,
-            // 'media' => $mediaRepository->findByName()
         ]);
     }
 }

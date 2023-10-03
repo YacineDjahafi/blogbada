@@ -17,7 +17,9 @@ class CategoryController extends AbstractController
             // On redirige sur la page d'accueil
             return $this->redirectToRoute('home');
         }
-        
+        // return $this->render('category/index.html.twig', [
+        //     'entity' => $category,
+        //     'articles' => $articleService->getPaginatedArticles($category)
         return $this->render('category/show.html.twig', [
             'category' => $category,
         ]);

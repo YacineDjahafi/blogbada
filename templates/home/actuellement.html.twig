@@ -1,0 +1,21 @@
+<p>bonjour</p>
+{% for article in articles %}
+    {% if article.order == 1 and article.featured_image_id is not empty %}
+        {% for media in mediaList %}
+            {% if article.featured_image_id == media.id %}
+            {# ~ => concaténation #}
+                <div class="bg-actu" style="background-image: url('{{ asset('media/' ~ media.filename) }}')">
+                <h3 class="actu-banner">Actuellement</h3>
+                <a href="127.0.0.1:8000/article/{{article.slug}}"></a>
+                {# Lorsque le site sera en ligne
+                <a href="badaboum-theatre/article/{{article.slug}}"></a> #}
+                <p>{{article.dates}}</p>
+                <p>{{article.age}}</p>
+                <h1>{{article.title}}</h1>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+    
+

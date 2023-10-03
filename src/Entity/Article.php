@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\TimestampedInterface;
+use App\Model\TimestampedInterface;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -34,6 +34,21 @@ class Article implements TimestampedInterface
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $dates = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $age = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $duration = null;
+
+    #[ORM\Column]
+    private ?bool $isVisible = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $article_order = null;
 
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'articles')]
     private Collection $categories;
@@ -177,28 +192,7 @@ class Article implements TimestampedInterface
     {
         return $this->no;
     }
-
-    public function addNo(Menu $no): static
-    {
-        if (!$this->no->contains($no)) {
-            $this->no->add($no);
-            $no->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNo(Menu $no): static
-    {
-        if ($this->no->removeElement($no)) {
-            // set the owning side to null (unless already changed)
-            if ($no->getArticle() === $this) {
-                $no->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
+   
     public function __toString()
     {
         return $this->title;
@@ -224,6 +218,66 @@ class Article implements TimestampedInterface
     public function removeRelatedImage(Media $relatedImage): static
     {
         $this->relatedImages->removeElement($relatedImage);
+
+        return $this;
+    }
+
+    public function getDates(): ?string
+    {
+        return $this->dates;
+    }
+
+    public function setDates(string $dates): static
+    {
+        $this->dates = $dates;
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(string $age): static
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getDuration(): ?string
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(string $duration): static
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function isIsVisible(): ?bool
+    {
+        return $this->isVisible;
+    }
+
+    public function setIsVisible(bool $isVisible): static
+    {
+        $this->isVisible = $isVisible;
+
+        return $this;
+    }
+
+    public function getArticleOrder(): ?int
+    {
+        return $this->article_order;
+    }
+
+    public function setArticleOrder(?int $article_order): static
+    {
+        $this->article_order = $article_order;
 
         return $this;
     }
