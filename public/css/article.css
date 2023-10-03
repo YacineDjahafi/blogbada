@@ -1,0 +1,15 @@
+.articleContainer{
+    display: flex;
+    margin: 0 auto;
+    width: 1300px;
+    /* min-width: 1300px; */
+    overflow-x: scroll;
+    justify-content: space-evenly;
+
+}
+
+.mini{
+    min-width: 400px;
+    margin: 25px 0;
+    height: 280px;
+}

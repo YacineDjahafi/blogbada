@@ -1,4 +1,8 @@
+<div class="articleContainer">
 {% for article in articles %}
 {# UNE LISTE QUI APPEL CHAQUE ARTICLE ET OU ON A LE TITRE, IMG, FEAT TEXT etc. #}
+
     {% include "article/item.html.twig" with {article} %}
+
 {% endfor %}
+</div>
