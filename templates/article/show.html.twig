@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
-
+{# STRUCTURE DE CHAQUE ARTICLE EN DETAIL #}
 {% block title %}
-	{{article.title}}
+	{{article.title|capitalize}}
 {% endblock %}
 
 {% block body %}
-
-	<div class="container">
-		<h1>{{article.title}}</h1>
+	
+	<div>
+		<h1>{{article.title|striptags('<a><h1>')}}</h1>
 		<hr>
-		<img src="/uploads/{{ article.featuredImage.filename }}" alt="{{ article.featuredImage.altText}}" loading="lazy" width="{{300}}" height="300">
-		{{article.content|raw}}
+		{% if article.featuredImage is not null and article.featuredImage.filename is not null %}
+			<img src="/uploads/{{ article.featuredImage.filename|striptags }}" alt="{{ article.featuredImage.altText|striptags}}" loading="lazy" width="{{300}}" height="300">
+		{% endif %}
+		
+		{{article.content|striptags}}
 	</div>
 
 

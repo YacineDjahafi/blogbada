@@ -74,22 +74,20 @@ body {
 }
  */
 .container {
-  /* max-width: 65rem; */
   padding: 0 2rem;
   margin: 0 auto;
   display: flex;
   position: relative;
   background-color: #453e84;
+  justify-content: space-between;
 }
 
 .logo-container {
-  flex: 1;
   display: flex;
   align-items: center;
 }
 
 .nav-btn {
-  flex: 1;
   display: flex;
 }
 

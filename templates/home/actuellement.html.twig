@@ -1,27 +1,54 @@
-<p>bonjour</p>
+{# <p>bonjour</p>
 {% for article in articles %}
-    {% if article.order == 1 and article.featured_image_id is not empty %}
-        {% for media in mediaList %}
-            {% if article.featured_image_id == media.id %}
-            {# ~ => concaténation #}
-                <div class="bg-actu" style="background-image: url('{{ asset('media/' ~ media.filename) }}')">
-                <h3 class="actu-banner">Actuellement</h3>
-                <a href="127.0.0.1:8000/article/{{article.slug}}"></a>
-                {# Lorsque le site sera en ligne
-                <a href="badaboum-theatre/article/{{article.slug}}"></a> #}
-                <p>{{article.dates}}</p>
-                <p>{{article.age}}</p>
-                <h1>{{article.title}}</h1>
-                </div>
+	{% if article.article_order == 1 and article.featured_image_id is not empty %}
+		{% set matchingMedia = null %}
+		{% for media in mediaList %}
+			{% if article.featured_image_id == media.id %}
+            {% set matchingMedia = media %}
             {% endif %}
         {% endfor %}
-    {% endif %}
-{% endfor %}
-    
+        {% if matchingMedia is not null %} #}
+            {# ~ => concaténation #}
+    {#         <div class="bg-actu" style="background-image: url('{{ asset('media/' ~ matchingMedia.filename) }}')">
+                <h3 class="actu-banner">Actuellement</h3>
+                <a href="127.0.0.1:8000/article/{{article.slug}}"></a> #}
+                {# Lorsque le site sera en ligne
+                <a href="badaboum-theatre/article/{{article.slug}}"></a> #}
+     {#            <p>{{article.dates}}</p>
+                <p>{{article.age}}</p>
+                <h1>{{article.title}}</h1>
+            </div>
+			{% endif %}
+	{% endif %}
+{% endfor %} #}
+
+<div class="bg-actu">
+    <div class="card">
+        <h3 class="actu-banner">La saison a commencé!</h3>
+            <div class="flex">
+                <a href="#">Inscription aux cours / stages</a>
+                <p>À partir de 4 ans.</p>
+            </div>
+        
+    </div>
+</div>
 
 
-    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+{# 
 <div class=" {% if article.order == 1 and article.featured_image_id is not empty %}bg-actu " 
 {% if article.featured_image_id == media.id %}
     {% set background_image_url = asset('uploads/' ~media.filename) %}
@@ -50,3 +77,4 @@
 <div class="bg-header">
 
 </div>
+ #}

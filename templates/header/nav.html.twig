@@ -1,10 +1,11 @@
 
-<link rel="stylesheet" href="{{ asset('/css/style-api.css') }}" />
+
 
 <div class="container">
     <input type="checkbox" name="check" id="check"/>
     <div class="logo-container">
         <h3 class="logo">Badaboum<span>THÉÂTRE</span></h3>
+		
     </div>
   
   {# NAV BAR #}
@@ -14,8 +15,7 @@
 				{% for menu in menus %}
 				<li class="nav-link">
 					<a href="
-					{# METTRE LIEN MENU #}
-					{# {{ menu.link }} #}
+					{{ menu.link }}
 					">{{ menu.name|capitalize }}</a>
 					{% if menu.subMenuses is not empty %}
 				
@@ -24,7 +24,7 @@
 							{% for subMenu in menu.subMenuses %}
 							<li class="dropdown-link">
 								<a href="
-								{# {{ subMenu.link }} #}
+								{{ subMenu.link }}
 								">{{ subMenu.name|capitalize }}</a>
 							</li>
 						<div class="arrow"></div>
@@ -42,6 +42,9 @@
 		</div>
 	</div>
 </div>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
+			{% endif %}
 
 
 {# MODELE DE BASE #}

@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article implements TimestampedInterface
 {
@@ -26,6 +27,9 @@ class Article implements TimestampedInterface
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $content = null;
 
+    #[ORM\Column(type: Types::INTEGER, nullable: true)]
+    private ?int $featured_image_id = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $featuredText = null;
 
@@ -34,21 +38,6 @@ class Article implements TimestampedInterface
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
-
-    #[ORM\Column(length: 100)]
-    private ?string $dates = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $age = null;
-
-    #[ORM\Column(length: 100)]
-    private ?string $duration = null;
-
-    #[ORM\Column]
-    private ?bool $isVisible = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $article_order = null;
 
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'articles')]
     private Collection $categories;
@@ -193,6 +182,7 @@ class Article implements TimestampedInterface
         return $this->featuredImage;
     }
 
+
     public function setFeaturedImage(?Media $featuredImage): static
     {
         $this->featuredImage = $featuredImage;
@@ -207,7 +197,7 @@ class Article implements TimestampedInterface
     {
         return $this->no;
     }
-   
+
     public function __toString()
     {
         return $this->title;
@@ -290,10 +280,38 @@ class Article implements TimestampedInterface
         return $this->article_order;
     }
 
+    public function getArticle_Order(): ?int
+    {
+        return $this->article_order;
+    }
+
     public function setArticleOrder(?int $article_order): static
     {
         $this->article_order = $article_order;
 
+        return $this;
+    }
+
+
+    /*    public function getFeaturedImageId(): ?int
+    {
+        return $this->featured_image_id;
+    }
+
+    public function setFeaturedImageId(?int $featured_image_id): static
+    {
+        $this->featured_image_id = $featured_image_id;
+        return $this;
+    } */
+
+    public function getFeatured_Image_Id(): ?int
+    {
+        return $this->featured_image_id;
+    }
+
+    public function setFeatured_Image_Id(?int $featured_image_id): static
+    {
+        $this->featured_image_id = $featured_image_id;
         return $this;
     }
 }

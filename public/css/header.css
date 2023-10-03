@@ -1,9 +1,12 @@
 .dashboard{
-  padding: 20px;
-  background-color: aqua;
+  padding: 11px;
+  border-radius: 30px;
+  background-color: rgb(4, 0, 255);
   margin: 50px;
+  color: white;
   font-size: xx-large;
   transition: 500ms;
+  position: fixed;
 }
 
 .dashboard:hover{
@@ -13,5 +16,23 @@
 }
 
 .bg-actu{
-  background-image: url("");
+  padding: 10%;
+  margin: 0 auto;
+  background-image: url("../uploads/la-belle-et-la-bete-la-surprise2-bcacfd8e-c9cf-45e5-91d9-c4ed7b5dccd7.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 500px;
+}
+
+.card{
+  border: rgb(161, 161, 161) 1px solid;
+  background-color: rgba(128, 128, 128, 0.575);
+  box-shadow: 5px 6px 5px 5px rgba(0,0,0,0.44);
+  border-radius: 30px;
+  width: 280px;
+  padding: 20px;
+}
+
+.actu-banner{
+  text-align: center;
 }

@@ -9,38 +9,30 @@
 
 
 		{% block stylesheets %}
-		 	<link rel="stylesheet" href=" {{ asset('/css/header.css') }}">
+			<link rel="stylesheet" href=" {{ asset('/css/header.css') }}">
 			<link rel="stylesheet" href=" {{ asset('/css/footer.css') }}">
+			<link rel="stylesheet" href=" {{ asset('/css/nav.css') }}">
 		{% endblock %}
 
-		{% block javascripts %}
-		{% endblock %}
+		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
-
-		{# NAVBAR ADMIN || METTRE DANS LA NAV #}
-		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-					<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
-				{% endif %}
-		{# FIN DE NAVBAR ADMIN #}
-
-		{# NAVBAR PUBLIC #}
-		{# {{ include ('menu/list.html.twig') }} #}
-		{# FIN DE NAVBAR PUBLIC #}
+		<header>
+			{% include "header/nav.html.twig" %}
 
 
+			
 		</header>
 
 		{% block body %}
-		
+			{# {% include "home/index.html.twig" %} #}
 		{% endblock %}
 
 
 		{# FOOTER #}
-		
+
 		{% include "widget/footer.html.twig" %}
 
-		
-		
+
 	</body>
 </html>

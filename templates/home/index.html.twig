@@ -1,18 +1,15 @@
 {% extends 'base.html.twig' %}
-
+{# PAGE D'ACCEUIL, A VOIR SI ON LA GARDE #}
 
 {% block title %}Accueil{% endblock %}
 
+
 {% block body %}
-
+{% include 'home/actuellement.html.twig' %}
     <main>
-        <div>
-        {% include 'home/actuellement.html.twig' %}
             {# LISTES DES ARTICLES #}
-            {# {% include 'article/list.html.twig' %} #}
-        </div>
-
-    </div>
+            {% include 'article/list.html.twig' %}
+    </main>
 
 {% endblock %}
 
