@@ -21,6 +21,7 @@ final class Version20230913123607 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         // $this->addSql('DROP INDEX name ON media');
+        $this->addSql('DROP INDEX name ON media');
         $this->addSql('ALTER TABLE user ADD email VARCHAR(255) NOT NULL');
     }
 

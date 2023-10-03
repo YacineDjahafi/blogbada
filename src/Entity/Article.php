@@ -62,6 +62,21 @@ class Article implements TimestampedInterface
     #[ORM\ManyToMany(targetEntity: Media::class)]
     private Collection $relatedImages;
 
+    #[ORM\Column(length: 100)]
+    private ?string $dates = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $age = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $duration = null;
+
+    #[ORM\Column]
+    private ?bool $isVisible = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $article_order = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
