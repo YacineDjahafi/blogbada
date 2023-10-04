@@ -13,25 +13,29 @@
 		<div class="nav-links">
 			<ul>
 				{% for menu in menus %}
+				{% if menu.isVisible == 1 %}
 				<li class="nav-link">
 					<a href="
 					{{ menu.link }}
 					">{{ menu.name|capitalize }}</a>
 					{% if menu.subMenuses is not empty %}
-				
 					<div class="dropdown">
 						<ul>
 							{% for subMenu in menu.subMenuses %}
+							{% if subMenu.isVisible == 1 %}
 							<li class="dropdown-link">
 								<a href="
 								{{ subMenu.link }}
 								">{{ subMenu.name|capitalize }}</a>
 							</li>
 						<div class="arrow"></div>
+						{% endif %}
 						{% endfor %}
 						</ul>
 					{% endif %}
 					</li>
+					
+				{% endif %}
 				{% endfor %}
 				</ul>
 			</div>

@@ -1,7 +1,8 @@
 {# menu #}
 <div class="scroller">
+    <h2 class="spec">Les spectacles de la saison 2023/24</h2>
 {# menu-wrapper #}
-    <div class="articleContainer">
+    <div id="container" class=" articleContainer">
     {% for article in articles %}
     {# UNE LISTE QUI APPEL CHAQUE ARTICLE ET OU ON A LE TITRE, IMG, FEAT TEXT etc. #}
         {% if article.isVisible == 1 %}
@@ -9,11 +10,11 @@
             <div class="slides">
                 {% include "article/item.html.twig" with {article} %}
             </div>
-        
-            
 
         {% endif %}
     {% endfor %}
 
-</div>
+    </div>
+    <button class="btn-voirTout">Voir plus</button>
+    <button class="btn-voirMoins">Voir moins</button>
 </div>

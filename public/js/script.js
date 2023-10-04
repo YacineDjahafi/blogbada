@@ -1,17 +1,27 @@
-/* const scrollers = document.querySelectorAll(".scroller");
+document.addEventListener("DOMContentLoaded", function() {
+    const allArticles = document.querySelector("#container");
+    const btnVoirTout = document.querySelector(".btn-voirTout");
+    const btnVoirMoins = document.querySelector(".btn-voirMoins");
 
-if(!window.matchMedia("(prefers-reduced-motion: reduce").matches){
-    addAnimation();
-}
+    function voirTout() {
+        if (allArticles) {
+            allArticles.classList.remove("articleContainer");
+            allArticles.classList.add("voirTout");
+            btnVoirTout.style.display = "none";
+            btnVoirMoins.style.display = "block";
+        }
+    }
 
-function addAnimation(){
-    scrollers.forEach(scroller => {
-        scroller.setAttribute('data-animated', true)
-    });
-} */
+    function voirScroll() {
+        if (allArticles) {
+            allArticles.classList.remove("voirTout");
+            allArticles.classList.add("articleContainer");
+            btnVoirMoins.style.display = "none";
+            btnVoirTout.style.display = "block";
+        }
+    }
 
-const miniScroll = document.querySelectorAll(".beforeh");
-
-if (condition) {
-    
-}
+        btnVoirTout.addEventListener("click", voirTout);
+        btnVoirMoins.addEventListener("click", voirScroll);
+   
+});

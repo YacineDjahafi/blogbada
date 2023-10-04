@@ -6,13 +6,13 @@
         <img src="/uploads/{{ article.featuredImage.filename }}" alt="{{ article.featuredImage.altText }}" loading="lazy" width="200" height="180" >
     </a>
     {% endif %}
-    <h2>
+    <h2 class="featuredText">
         <a href="{{ path('article_show', { 'slug': article.slug }) }}">
             {{article.title|striptags('<h2><a>')}}
         </a>
     </h2>
-    <p>
-        {{ article.age|striptags('<a><p>')}}
+    <p class="featuredText">
+        {{ article.age|capitalize|striptags('<a><p>')}}
     </p>
-    {{ article.featuredText ?: article.content|striptags|slice(0, 130 ~ '...')}}
+    <p class="featuredText">{{ article.featuredText ?: article.content|capitalize|striptags|slice(0, 130 ~ '...')}}</p>
 </article>

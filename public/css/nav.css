@@ -78,7 +78,9 @@ body {
   margin: 0 auto;
   display: flex;
   position: relative;
-  background-color: #453e84;
+  /* background-color: #453e84; */
+  /* background-color: #535353; */
+  background-color: #54bfbf;
   justify-content: space-between;
 }
 
