@@ -1,8 +1,19 @@
-<div class="articleContainer">
-{% for article in articles %}
-{# UNE LISTE QUI APPEL CHAQUE ARTICLE ET OU ON A LE TITRE, IMG, FEAT TEXT etc. #}
+{# menu #}
+<div class="scroller">
+{# menu-wrapper #}
+    <div class="articleContainer">
+    {% for article in articles %}
+    {# UNE LISTE QUI APPEL CHAQUE ARTICLE ET OU ON A LE TITRE, IMG, FEAT TEXT etc. #}
+        {% if article.isVisible == 1 %}
+        {# menu-item #}
+            <div class="slides">
+                {% include "article/item.html.twig" with {article} %}
+            </div>
+        
+            
 
-    {% include "article/item.html.twig" with {article} %}
+        {% endif %}
+    {% endfor %}
 
-{% endfor %}
+</div>
 </div>

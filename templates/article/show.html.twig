@@ -10,7 +10,7 @@
 		<h1>{{article.title|striptags('<a><h1>')}}</h1>
 		<hr>
 		{% if article.featuredImage is not null and article.featuredImage.filename is not null %}
-			<img src="/uploads/{{ article.featuredImage.filename|striptags }}" alt="{{ article.featuredImage.altText|striptags}}" loading="lazy" width="{{300}}" height="300">
+			<img src="/uploads/{{ article.featuredImage.filename}}" alt="{{ article.featuredImage.altText}}" loading="lazy" width="{{300}}" height="300">
 		{% endif %}
 		
 		{{article.content|striptags}}
