@@ -14,12 +14,11 @@
   background-color: darkgreen;
   color: #fafafa;
 }
-
 .bg-actu{
   padding: 10%;
   margin: 0 auto;
   background-image: url("../uploads/bandeau-accueil-816252e9-bd19-4864-a0fb-15c118ed59dc.jpg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   max-height: 500px;

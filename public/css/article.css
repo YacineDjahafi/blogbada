@@ -6,7 +6,7 @@
     box-shadow: 0px 9px 5px -1px rgba(0,0,0,0.51);
     padding: 20px;
     font-size: 40px;
-    background-color: #27a251;
+    background-color: #799d28;
 }
 
 
@@ -73,13 +73,17 @@
     padding-bottom: 10px;
 
 }
-article a img{
+.articleContainer .slides article a img{
     width: 100%;
     height: auto;
     border-radius: 20px 20px 0 0;
     
 }
-
+.voirTout .slides article a img{
+    width: 320px;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+}
 /* menu-item */
 .slides{
     min-width: 320px;

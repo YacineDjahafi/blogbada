@@ -477,5 +477,43 @@ body {
     transform: translateY(15px);
   }
 }
-
 /* FIN DE LA NAV BAR */
+
+.logoNewsletter{
+  position: absolute;
+  right: 80px;
+  top: 100px;
+  width: 50px;
+  height: 50px;
+  /* padding: 12px; */
+  border-radius: 50%;
+  background-color: rgb(177, 20, 20);
+  border: black 1px solid;
+  transition: 1s;
+}
+
+@keyframes rotation {
+  0% {transform:rotate(0deg)}
+  25% {transform:rotate(220deg)}
+  50% {transform:rotate(720deg)}
+  
+}
+.btnHover{
+  position: absolute;
+  right: 80px;
+  top: 100px;
+  width: 200px;
+  height: 50px;
+  /* padding: 12px; */
+  border-radius: 50px 0 0 50px;
+  background-color: rgb(177, 20, 20);
+  border: black 1px solid;
+  font-size: 30px;
+  font-weight: 600;
+
+}
+
+/* .btnHover:hover{
+  animation-name: rotation;
+    animation-duration: 1s;
+} */

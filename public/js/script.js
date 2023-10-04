@@ -24,4 +24,16 @@ document.addEventListener("DOMContentLoaded", function() {
         btnVoirTout.addEventListener("click", voirTout);
         btnVoirMoins.addEventListener("click", voirScroll);
    
+
+
+// Newsletter
+let btnNewsletter = document.querySelector("#btnNewsletter");
+
+function btnDisplay(){
+    btnNewsletter.classList.remove("logoNewsletter");
+    btnNewsletter.classList.add("btnHover");
+    btnNewsletter.innerText= "Newsletter";
+}
+btnNewsletter.addEventListener("mouseover", btnDisplay)
+
 });
