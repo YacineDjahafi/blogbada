@@ -45,9 +45,6 @@ class Article implements TimestampedInterface
     #[ORM\ManyToOne]
     private ?Media $featuredImage = null;
 
-    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Menu::class)]
-    private Collection $no;
-
     #[ORM\ManyToMany(targetEntity: Media::class)]
     private Collection $relatedImages;
 
@@ -69,7 +66,6 @@ class Article implements TimestampedInterface
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-        $this->no = new ArrayCollection();
         $this->relatedImages = new ArrayCollection();
     }
 
@@ -188,14 +184,6 @@ class Article implements TimestampedInterface
         $this->featuredImage = $featuredImage;
 
         return $this;
-    }
-
-    /**
-     * @return Collection<int, Menu>
-     */
-    public function getNo(): Collection
-    {
-        return $this->no;
     }
 
     public function __toString()

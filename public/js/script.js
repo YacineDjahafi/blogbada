@@ -27,13 +27,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Newsletter
-let btnNewsletter = document.querySelector("#btnNewsletter");
+/* let btnNewsletter = document.querySelector("#btnNewsletter");
+let formNewsletter = document.querySelector(".formNewsletter");
 
 function btnDisplay(){
     btnNewsletter.classList.remove("logoNewsletter");
     btnNewsletter.classList.add("btnHover");
-    btnNewsletter.innerText= "Newsletter";
+    if (btnNewsletter){
+        btnNewsletter.innerText= "Newsletter";
+    }
 }
-btnNewsletter.addEventListener("mouseover", btnDisplay)
 
-});
+function logoNewsletter(){
+    btnNewsletter.classList.remove("btnHover");
+    btnNewsletter.classList.add("logoNewsletter");
+    if (btnNewsletter){
+        btnNewsletter.innerText= "N";
+    }
+}
+
+function formDisplay(){
+    formNewsletter.style.display = "block";
+}
+
+btnNewsletter.addEventListener("mouseover", btnDisplay);
+btnNewsletter.addEventListener("mouseout", logoNewsletter);
+btnNewsletter.addEventListener("onclick", formDisplay);
+*/
+}); 

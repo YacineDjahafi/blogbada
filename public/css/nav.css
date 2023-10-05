@@ -82,6 +82,7 @@ body {
   /* background-color: #535353; */
   background-color: #54bfbf;
   justify-content: space-between;
+  box-shadow: 0px 9px 5px -1px rgba(0,0,0,0.51);
 }
 
 .logo-container {
@@ -478,42 +479,37 @@ body {
   }
 }
 /* FIN DE LA NAV BAR */
-
+/* NEWSLETTER */
 .logoNewsletter{
   position: absolute;
   right: 80px;
   top: 100px;
-  width: 50px;
-  height: 50px;
-  /* padding: 12px; */
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  font-weight: 600;
   border-radius: 50%;
   background-color: rgb(177, 20, 20);
   border: black 1px solid;
   transition: 1s;
 }
-
-@keyframes rotation {
-  0% {transform:rotate(0deg)}
-  25% {transform:rotate(220deg)}
-  50% {transform:rotate(720deg)}
-  
+.formNewsletter{
+  /* display: none; */
 }
 .btnHover{
   position: absolute;
   right: 80px;
   top: 100px;
-  width: 200px;
-  height: 50px;
+  width: 220px;
+  height: 60px;
   /* padding: 12px; */
   border-radius: 50px 0 0 50px;
   background-color: rgb(177, 20, 20);
   border: black 1px solid;
   font-size: 30px;
   font-weight: 600;
+  transition: 1s;
+  overflow: hidden;
 
 }
 
-/* .btnHover:hover{
-  animation-name: rotation;
-    animation-duration: 1s;
-} */
