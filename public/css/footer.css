@@ -19,6 +19,12 @@ a{
     justify-content: center;
 }
 
+@media (max-width: 600px) {
+    .flex{
+        display: block;
+    }
+}
+
 .newsletter{
     background-color: rgb(6, 132, 136);
     border-radius: 20px;
