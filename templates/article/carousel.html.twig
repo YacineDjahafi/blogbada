@@ -1,0 +1,7 @@
+{# SUR PAGE D'ACCUEIL #}
+
+    {% if article.featuredImage %}
+    <a href="{{ path('article_show', { 'slug': article.slug }) }}">
+        <img src="/uploads/{{ article.featuredImage.filename }}" alt="{{ article.featuredImage.altText }}" loading="lazy" width="200" height="180" >
+    </a>
+    {% endif %}

@@ -6,9 +6,11 @@
     {% for article in articles %}
     {# UNE LISTE QUI APPEL CHAQUE ARTICLE ET OU ON A LE TITRE, IMG, FEAT TEXT etc. #}
         {% if article.isVisible == 1 %}
+
         {# menu-item #}
             <div class="slides">
-                {% include "article/item.html.twig" with {article} %}
+            {% include "article/carousel.html.twig" %}
+                {# {% include "article/item.html.twig" with {article} %} #}
             </div>
 
         {% endif %}

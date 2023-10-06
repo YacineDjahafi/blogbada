@@ -1,0 +1,110 @@
+@media (width > 900px){
+/* NAV */
+    .container {
+      padding: 0 2rem;
+      margin: 0 auto;
+      display: flex;
+      position: relative;
+      /* background-color: #453e84; */
+      /* background-color: #535353; */
+      background-color: #54bfbf;
+      justify-content: space-between;
+      box-shadow: 0px 9px 5px -1px rgba(0,0,0,0.51);
+      z-index: 5;
+    }
+
+    .nav-link>a {
+        line-height: 1;
+        padding: 0.8rem 0.5rem;
+    }
+
+    .nav-link:hover>a {
+    transform: scale(1.05);
+    background-color:#fafafa;
+    color: #453e84;
+    }
+    
+    /* 
+    
+    .nav-link>a {
+  line-height: 3rem;
+  color: rgb(231, 231, 231);
+  padding: 0 .8rem;
+  letter-spacing: 2rem;
+  font-size: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  transition: .5s;
+  letter-spacing: 1px;
+  
+  
+  */
+/* HEADER */
+/* VUE PC */
+/* @media (width > 760px){
+  .container {
+    padding: 0 2rem;
+    margin: 0 auto;
+    display: flex;
+    position: relative; */
+    /* background-color: #453e84; */
+    /* background-color: #535353; */
+/*     background-color: #54bfbf;
+    justify-content: space-between;
+    box-shadow: 0px 9px 5px -1px rgba(0,0,0,0.51);
+    z-index: 5;
+  }} */
+/* 
+ .cards{
+    width: 21vw;
+    margin: 1vw;
+    height: 21vw;
+    display: flex;
+    flex-wrap: wrap;
+    border: #41388f solid 2px;
+    border-radius: 20px;
+  }
+
+  img{
+    width: 20vw;
+    margin: auto;
+    border-radius: 20px;
+  } */
+
+/* 
+.text{
+  margin-left: 1rem;
+}
+
+.description{
+  font-size: small;
+}
+
+.card-container{
+  max-width: 65rem;
+  margin: 0 auto;
+  margin-top: 4vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}  */
+
+
+/* ARTICLE */
+
+/* 
+.articleContainer{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
+        height: 400px;
+        width: 1350px;
+        min-width: 1300px;
+        overflow-x: scroll;
+        mask: linear-gradient(90deg, transparent, white 7%, white 93%, transparent);
+        background: linear-gradient(90deg, rgba(133, 133, 133, 0.572) 0%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%, rgba(133, 133, 133,0.5270308807116597) 100%); 
+    }
+     */
+
+}
