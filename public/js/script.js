@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const allArticles = document.querySelector("#container");
+    const carousel = document.querySelector(".posterContainer")
+    const spectacles = document.querySelector(".affiches")
     const btnVoirTout = document.querySelector(".btn-voirTout");
     const btnVoirMoins = document.querySelector(".btn-voirMoins");
 
@@ -11,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
             btnVoirMoins.style.display = "block";
         }
     }
-
     function voirScroll() {
         if (allArticles) {
             allArticles.classList.remove("voirTout");
@@ -20,6 +21,21 @@ document.addEventListener("DOMContentLoaded", function() {
             btnVoirTout.style.display = "block";
         }
     }
+    // TEST
+  /*   function voirTout() {
+            carousel.style.display = "none";
+            spectacles.style.display = "block";
+            btnVoirTout.style.display = "none";
+            btnVoirMoins.style.display = "block";
+        
+    }
+    function voirScroll() {
+            spectacles.style.display = "none";
+            carousel.style.display = "block";
+            btnVoirMoins.style.display = "block";
+            btnVoirTout.style.display = "none";
+        
+    } */
 
         btnVoirTout.addEventListener("click", voirTout);
         btnVoirMoins.addEventListener("click", voirScroll);

@@ -6,9 +6,13 @@
     box-shadow: 0px 9px 5px -1px rgba(0,0,0,0.51);
     padding: 15px;
     font-size: 32px;
-    background-color: #799d28;
+    background-color: #8bb72a
+    /* #799d28 */
+    ;
 }
-
+.affiches{
+    display: none;
+}
 
 .btn-voirMoins{
     display: none;
