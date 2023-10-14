@@ -32,11 +32,8 @@ class ArticleFixture extends AppFixtures
             $article->setDuration($duration);
             $article->setCreatedAt($createdAt);
             $article->setArticleOrder($article_order);
-            
-
             $manager->persist($article);
         }
-        
         $manager->flush();
     }
 }

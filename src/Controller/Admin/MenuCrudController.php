@@ -34,7 +34,7 @@ class MenuCrudController extends AbstractCrudController
             ->autocomplete()
             ->setFormTypeOptions([
                 'multiple' => true,
-                'by_reference' => false, // Important pour les relations one-to-many
+                'by_reference' => false,
             ]);
         yield TextField::new('link', 'Lien');
         yield BooleanField::new('isVisible', 'Visible');

@@ -25,6 +25,7 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        // mettre condition if fully identified
         $url = $this->adminUrlGenerator->setController(ArticleCrudController::class)
             ->generateUrl();
         return $this->redirect($url);

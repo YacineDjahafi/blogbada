@@ -32,9 +32,9 @@ class ArticleCrudController extends AbstractCrudController
             // ->setFormTypeOptions([
             //     'multiple' => true
             // ])
-        yield TextareaField::new('dates');
-        yield TextareaField::new('age');
-        yield TextareaField::new('duration');
+        yield TextField::new('dates');
+        yield TextField::new('age');
+        yield TextField::new('duration');
         yield NumberField::new('article_order', 'Ordre');
         yield TextField::new('featuredText');
         yield DateTimeField::new('createdAt')->hideOnForm();
