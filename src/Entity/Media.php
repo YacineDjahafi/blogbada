@@ -78,6 +78,7 @@ class Media
 
     public function setMediaOrder(?int $media_order): static
     {
+        
         $this->media_order = $media_order;
 
         return $this;
