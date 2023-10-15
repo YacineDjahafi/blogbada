@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const allArticles = document.querySelector("#container");
-    const carousel = document.querySelector(".posterContainer")
-    const spectacles = document.querySelector(".affiches")
     const btnVoirTout = document.querySelector(".btn-voirTout");
     const btnVoirMoins = document.querySelector(".btn-voirMoins");
+
 
     function voirTout() {
         if (allArticles) {
@@ -17,11 +16,30 @@ document.addEventListener("DOMContentLoaded", function() {
         if (allArticles) {
             allArticles.classList.remove("voirTout");
             allArticles.classList.add("articleContainer");
+           /*  hover.classList.remove("active");
+            hover.classList.add(".unactive"); */
             btnVoirMoins.style.display = "none";
             btnVoirTout.style.display = "block";
         }
     }
-    // TEST
+
+    const hover = document.querySelectorAll(".hover");
+
+    function hoverActive(event) {
+        event.target.style.opacity = "1";
+    }
+
+    hover.forEach(function(hover){
+        hover.addEventListener("mouseover", hoverActive)
+        console.log("bonjour");
+    });
+ 
+        btnVoirTout.addEventListener("click", voirTout);
+        btnVoirMoins.addEventListener("click", voirScroll);
+   
+
+}); 
+   // TEST
   /*   function voirTout() {
             carousel.style.display = "none";
             spectacles.style.display = "block";
@@ -36,12 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
             btnVoirTout.style.display = "none";
         
     } */
-
-        btnVoirTout.addEventListener("click", voirTout);
-        btnVoirMoins.addEventListener("click", voirScroll);
-   
-
-
 // Newsletter
 /* let btnNewsletter = document.querySelector("#btnNewsletter");
 let formNewsletter = document.querySelector(".formNewsletter");
@@ -70,4 +82,3 @@ btnNewsletter.addEventListener("mouseover", btnDisplay);
 btnNewsletter.addEventListener("mouseout", logoNewsletter);
 btnNewsletter.addEventListener("onclick", formDisplay);
 */
-}); 

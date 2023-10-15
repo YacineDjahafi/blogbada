@@ -58,3 +58,14 @@
   font-size: 3.3rem;
   padding-top: 18px;
 }
+
+.registerForm{
+  text-align: center;
+  margin: 30px;
+}
+
+.imgLock{
+  width: 400px;
+  margin: 20px auto;  
+  display: block;
+}

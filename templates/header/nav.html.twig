@@ -1,56 +1,53 @@
-
-
-
 <div class="container">
-    <input type="checkbox" name="check" id="check"/>
-    <div class="logo-container">
-        <h3 class="logo">Badaboum<span>THÉÂTRE</span></h3>
-		
-    </div>
-  
-  {# NAV BAR #}
+	<input type="checkbox" name="check" id="check"/>
+	<div class="logo-container">
+		<h3 class="logo">Badaboum<span>THÉÂTRE</span>
+		</h3>
+
+	</div>
+
+	{# NAV BAR #}
 	<div class="nav-btn">
 		<div class="nav-links">
 			<ul>
 				{% for menu in menus %}
-				{% if menu.isVisible == 1 %}
-				<li class="nav-link">
-					<a href="
-					{{ menu.link }}
-					">{{ menu.name|capitalize }}</a>
-					{% if menu.subMenuses is not empty %}
-					<div class="dropdown">
-						<ul>
-							{% for subMenu in menu.subMenuses %}
-							{% if subMenu.isVisible == 1 %}
-							<li class="dropdown-link">
-								<a href="
-								{{ subMenu.link }}
-								">{{ subMenu.name|capitalize }}</a>
+					{% if menu.isVisible == 1 %}
+						<li class="nav-link">
+							<a href="
+													{{ menu.link }}
+													">{{ menu.name|capitalize }}</a>
+							{% if menu.subMenuses is not empty %}
+								<div class="dropdown">
+									<ul>
+										{% for subMenu in menu.subMenuses %}
+											{% if subMenu.isVisible == 1 %}
+												<li class="dropdown-link">
+													<a href="
+																						{{ subMenu.link }}
+																						">{{ subMenu.name|capitalize }}</a>
+												</li>
+												<div class="arrow"></div>
+											{% endif %}
+										{% endfor %}
+									</ul>
+								{% endif %}
 							</li>
-						<div class="arrow"></div>
+
 						{% endif %}
-						{% endfor %}
-						</ul>
-					{% endif %}
-					</li>
-					
-				{% endif %}
-				{% endfor %}
+					{% endfor %}
 				</ul>
 			</div>
 		</div>
-	<div class="hamburger-menu-container">
-		<div class="hamburger-menu">
-			<div></div>
+		<div class="hamburger-menu-container">
+			<div class="hamburger-menu">
+				<div></div>
+			</div>
 		</div>
 	</div>
-</div>
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-				<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
-			{% endif %}
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+		<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
+	{% endif %}
 
-{# NEWSLETTER #}
-{# <button id="btnNewsletter" class="logoNewsletter">N</button>
-<form action="" class="formNewsletter"></form> #}
-
+	{# NEWSLETTER #}
+	{# <button id="btnNewsletter" class="logoNewsletter">N</button>
+	<form action="" class="formNewsletter"></form> #}
