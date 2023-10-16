@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     hover.forEach(function(hover){
         hover.addEventListener("mouseover", hoverActive)
-        console.log("bonjour");
     });
  
         btnVoirTout.addEventListener("click", voirTout);

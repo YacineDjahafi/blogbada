@@ -105,11 +105,11 @@
     height: auto;
     border-radius: 20px 20px 0 0;
 }
-
+/* 
 .hover{
     opacity: 0;
     transition: 0.6s;
-}
+} */
 
 .slides{
     height: auto;
@@ -132,7 +132,7 @@
 
 .slides:hover{
     transform: scale(1.1);
-    border: 1px solid rgba(255, 252, 104, 0.849);
+    /* border: 1px solid rgba(255, 252, 104, 0.849); */
     background: #fafafa;
     /* background: rgb(248, 229, 205); */
     /* background: linear-gradient(90deg, rgba(37, 37, 37, 0.384) 0%, rgba(207, 207, 207, 0.904) 20%, rgba(209, 209, 209, 0.89) 80%, rgba(66, 66, 66, 0.356) 100%);  */
