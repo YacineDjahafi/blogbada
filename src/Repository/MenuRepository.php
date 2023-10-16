@@ -30,7 +30,6 @@ class MenuRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    // TEST ULTIME
     public function findByName(string $name): array
     {
         $qb = $this->createQueryBuilder('m')
@@ -43,7 +42,6 @@ class MenuRepository extends ServiceEntityRepository
 
         $results = $qb->getResult();
 
-        // Reformat the results into the desired structure
         $formattedResults = [];
         foreach ($results as $result) {
             $menuName = $result['name'];

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnVoirTout = document.querySelector(".btn-voirTout");
     const btnVoirMoins = document.querySelector(".btn-voirMoins");
 
+
     function voirTout() {
         if (allArticles) {
             allArticles.classList.remove("articleContainer");
@@ -11,20 +12,47 @@ document.addEventListener("DOMContentLoaded", function() {
             btnVoirMoins.style.display = "block";
         }
     }
-
     function voirScroll() {
         if (allArticles) {
             allArticles.classList.remove("voirTout");
             allArticles.classList.add("articleContainer");
+           /*  hover.classList.remove("active");
+            hover.classList.add(".unactive"); */
             btnVoirMoins.style.display = "none";
             btnVoirTout.style.display = "block";
         }
     }
 
+    const hover = document.querySelectorAll(".hover");
+
+    function hoverActive(event) {
+        event.target.style.opacity = "1";
+    }
+
+    hover.forEach(function(hover){
+        hover.addEventListener("mouseover", hoverActive)
+        console.log("bonjour");
+    });
+ 
         btnVoirTout.addEventListener("click", voirTout);
         btnVoirMoins.addEventListener("click", voirScroll);
 }); 
-
+}); 
+   // TEST
+  /*   function voirTout() {
+            carousel.style.display = "none";
+            spectacles.style.display = "block";
+            btnVoirTout.style.display = "none";
+            btnVoirMoins.style.display = "block";
+        
+    }
+    function voirScroll() {
+            spectacles.style.display = "none";
+            carousel.style.display = "block";
+            btnVoirMoins.style.display = "block";
+            btnVoirTout.style.display = "none";
+        
+    } */
 // Newsletter
 /* let btnNewsletter = document.querySelector("#btnNewsletter");
 let formNewsletter = document.querySelector(".formNewsletter");

@@ -25,7 +25,6 @@ class ArticleController extends AbstractController
         MediaRepository $mediaRepository,
     ): Response {
         $menuName = 'NomDuMenu';
-        // $menuName comme paramètre pour la méthode findByName
         $subMenus = $subMenusRepository->findByName($menuName);
         $mediaList = $mediaRepository->findAll();
 
@@ -40,7 +39,6 @@ class ArticleController extends AbstractController
             'subMenuses' => $subMenus,
             'mediaList' => $mediaList,
             // 'media' => $mediaRepository->findByName()
-
         ]);
     }
 }

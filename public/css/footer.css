@@ -1,6 +1,4 @@
 *{
-    padding: 0;
-    margin: 0;
     list-style: none;
     text-decoration: none;
 }
@@ -103,20 +101,26 @@ a{
 
 .maps h3{
     margin-bottom: 15px;
+    font-size: 2.1rem;
+}
+.contactFooter h3{
+    font-size: 2.1rem;
 }
 .footernav{
-    flex-wrap: wrap;
     display: block;
     /* background-color: black; */
+    text-align: center;
 }
 
 #map{
     width: 90vw;
-    height: 50vh;
+    height: auto;
 }
 @media screen and (min-width: 1000px) {
     #map{
-        width: 50%;
+        width: 60%;
         height: 400px;
+        margin: 0 auto;
+        display: block;
     }
 }
