@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
         btnVoirTout.addEventListener("click", voirTout);
         btnVoirMoins.addEventListener("click", voirScroll);
 }); 
-}); 
    // TEST
   /*   function voirTout() {
             carousel.style.display = "none";

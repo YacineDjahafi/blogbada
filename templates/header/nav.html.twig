@@ -40,20 +40,9 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-</div>
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-	<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
-{% endif %}
-
-{# NEWSLETTER #}
-{# <button id="btnNewsletter" class="logoNewsletter">N</button>
-<form action="" class="formNewsletter"></form> #}
-=======
 	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 		<a class="dashboard" href="{{path('admin')}}">Tableau de bord</a>
 	{% endif %}
->>>>>>> 8f21615ffe1fdc236f5c60934d3e8f4e23f4ea5a
 
 	{# NEWSLETTER #}
 	{# <button id="btnNewsletter" class="logoNewsletter">N</button>

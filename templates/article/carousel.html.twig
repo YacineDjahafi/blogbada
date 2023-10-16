@@ -2,16 +2,10 @@
 
 
     {% if article.featuredImage %}
-<<<<<<< HEAD
-    <a href="{{ path('article_show', { 'slug': article.slug }) }}">
-        <img src="/uploads/{{ article.featuredImage.filename }}" 
-        alt="{{ article.featuredImage.altText }}" loading="lazy" width="200" height="180" >
-=======
     <a class="posterContainer" href="{{ path('article_show', { 'slug': article.slug }) }}">
         <img src="/uploads/{{ article.featuredImage.filename }}" 
         alt="{{ article.featuredImage.altText }}" 
         loading="lazy" width="200" height="180" >
->>>>>>> 8f21615ffe1fdc236f5c60934d3e8f4e23f4ea5a
     </a>
     <div class="hover">
         <h2 class="featuredText hover">
