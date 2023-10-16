@@ -34,7 +34,7 @@ class MediaCrudController extends AbstractCrudController
         
         yield NumberField::new('media_order', 'Ordre');
 
-        yield TextField::new('altText', 'Texte alternatif');
+        yield TextField::new('altText', 'Texte alternatif')->setTargetFieldName('filename');
         yield $imageField;
     }
    

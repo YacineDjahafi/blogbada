@@ -16,6 +16,7 @@ class ArticleController extends AbstractController
 {
     #[Route('/article/{slug}', name: 'article_show')]
     public function show(
+        // Présent pour le timestamp
         ?Article $article,
         ArticleRepository $articleRepo,
         CategoryRepository $categoryrepo,

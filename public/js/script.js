@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         btnVoirTout.addEventListener("click", voirTout);
         btnVoirMoins.addEventListener("click", voirScroll);
-   
-
+}); 
 
 // Newsletter
 /* let btnNewsletter = document.querySelector("#btnNewsletter");
@@ -54,4 +53,3 @@ btnNewsletter.addEventListener("mouseover", btnDisplay);
 btnNewsletter.addEventListener("mouseout", logoNewsletter);
 btnNewsletter.addEventListener("onclick", formDisplay);
 */
-}); 
