@@ -44,34 +44,27 @@ a{
     transform: rotateX(-5deg) rotateY(-5deg) rotateZ(-5deg);
     transition: 500ms;
 }
-
 .contact_form:hover{
     transform: scale(1.2) rotateX(5deg) rotateY(5deg) rotateZ(5deg);
     background-color: darkgreen;
     color: black;
 }
-
 .footer{
     gap: 30px;
     justify-content: center;
 }
-
 #legal{
     text-decoration: underline;
 }
-
 .line{
     display: flex;
     flex-wrap: wrap;
     width: 200px;
 }
-
 .partenaire1, .partenaire2, .partenaire3{
     width: 120px;
     height: 30px;
-
 }
-
 .adminAction{
     gap: 20px;
 }
@@ -108,7 +101,6 @@ a{
 }
 .footernav{
     display: block;
-    /* background-color: black; */
     text-align: center;
 }
 

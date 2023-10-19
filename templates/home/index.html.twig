@@ -1,30 +1,8 @@
 {% extends 'base.html.twig' %}
-{# PAGE D'ACCEUIL, A VOIR SI ON LA GARDE #}
-
 {% block title %}Accueil{% endblock %}
-
-
 {% block body %}
-{% include 'home/actuellement.html.twig' %}
-    
-            {# LISTES DES ARTICLES #}
-            {% include 'article/list.html.twig' %}
-            {% include "home/cours.html.twig" %}
-
+	{% include 'home/actuellement.html.twig' %}
+	{% include 'article/list.html.twig' %}
+	{% include "home/cours.html.twig" %}
 {% endblock %}
 
-
-{# {% for article in articles %}
-    {% set background_image_url = '' %}
-    {% if article.order == 1 and article.featured_image_id is not empty %}
-        {% for media in mediaList %}
-            {% if article.featured_image_id == media.id %}
-                {% set background_image_url = asset('media/' ~ media.filename) %}
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-    
-    <div class="article" style="{% if background_image_url %}background-image: url('{{ background_image_url }}');{% endif %}">
-        <!-- Contenu de l'article ici -->
-    </div>
-{% endfor %} #}

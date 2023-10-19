@@ -42,15 +42,14 @@ class RegistrationFormType extends AbstractType
                 'second_options' => ['label' => 'Confirmer le mot de passe'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Merci d\'entrer un mot de passe ',
                     ]),
                     new Length([
-                        'min' => 6,
+                        'min' => 8,
                         'max' => 255,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

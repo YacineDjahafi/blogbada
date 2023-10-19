@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8">
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=4.0,user-scalable=yes, shrink-to-fit=no">
 		<title>
 			{% block title %}{% endblock %} -
 			Badaboum Théâtre 
@@ -10,7 +10,6 @@
 		<link rel="icon" href="data:image/svg+xml,
 		<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22>
 		<text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-
 		{% block stylesheets %}
 			<link rel="stylesheet" href=" {{ asset('/css/header.css') }}">
 			<link rel="stylesheet" href=" {{ asset('/css/footer.css') }}">
@@ -20,21 +19,18 @@
 			<link rel="stylesheet" href="{{asset('/css/cours.css')}}">
 			<link rel="stylesheet" href="{{asset('/css/desktop.css')}}">
 		{% endblock %}
-
-		{% block javascripts %}
-			<script src="{{ asset('js/script.js') }}"></script>
+		{% block stylesheets %}
+			<script defer src="{{ asset('js/script.js') }}"></script>
 		{% endblock %}
 	</head>
 	<body>
 		<header>
 			{% include "header/nav.html.twig" %}
 		</header>
-
-		{% block body %}
 		<main>
-			{% include "home/index.html.twig" %}
+			{% block body %}
+			{% endblock %}
 		</main>
-		{% endblock %}
 		{% include "footer/footer.html.twig" %}
 	</body>
 </html>
