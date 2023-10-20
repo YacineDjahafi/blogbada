@@ -14,7 +14,7 @@ a{
 }
 
 /* VUE MOBILE */
-@media screen and (width < 899px){
+@media screen and (width < 700px){
   
 
 .container{

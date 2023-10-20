@@ -7,9 +7,8 @@
 			{% block title %}{% endblock %} -
 			Badaboum Théâtre 
 		</title>
-		<link rel="icon" href="data:image/svg+xml,
-		<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22>
-		<text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<meta name="description" content="Théâtre pour enfants à Marseille, spectacles, cours et stage de théâtre et de cirque.">
+		<link rel="icon" href="uploads/logo-d-4ab84c80-6d4d-4a1b-9451-ca49ec6f3bc4.avif">
 		{% block stylesheets %}
 			<link rel="stylesheet" href=" {{ asset('/css/header.css') }}">
 			<link rel="stylesheet" href=" {{ asset('/css/footer.css') }}">
@@ -19,7 +18,7 @@
 			<link rel="stylesheet" href="{{asset('/css/cours.css')}}">
 			<link rel="stylesheet" href="{{asset('/css/desktop.css')}}">
 		{% endblock %}
-		{% block stylesheets %}
+		{% block javascript %}
 			<script defer src="{{ asset('js/script.js') }}"></script>
 		{% endblock %}
 	</head>
