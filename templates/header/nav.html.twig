@@ -1,12 +1,11 @@
 <div class="container">
 	<input type="checkbox" name="check" id="check"/>
 	<div class="logo-container">
-		<a href=""><img src="" alt=""></a>
-		{# <h3 class="logo">Badaboum<span>THÉÂTRE</span></h3> #}
+		{# <a href="/"><img class="logoBada" src="uploads/logo-bada-437d061c-b6dc-4077-a8c3-42ae8d8f322b.avif" alt=""></a> #}
+		<a class="logo" href="" altText="Badaboum theatre">Badaboum<span>THÉÂTRE</span></a>
 	</div>
 	<div class="nav-btn">
 		<div class="nav-links">
-			<ul>
 				{% for menu in menus %}
 					{% if menu.isVisible == 1 %}
 						<li class="nav-link">

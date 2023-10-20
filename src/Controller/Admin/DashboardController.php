@@ -28,7 +28,6 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         if ($this->security->isGranted('ROLE_ADMIN')) {
-        // mettre condition if fully identified
         $url = $this->adminUrlGenerator->setController(ArticleCrudController::class)
             ->generateUrl();
         return $this->redirect($url);

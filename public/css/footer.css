@@ -69,7 +69,6 @@ a{
     gap: 20px;
 }
 
-@media screen and (max-width: 599px) {
     .newsletter, .contact_form{
         padding: 8px;
     }
@@ -79,11 +78,9 @@ a{
     }
 
     .footernav{
-        flex-direction: column;
         display: block;
-        background-color: black;
     }
-}
+
 .newsletter, .contact_form{
     padding: 8px;
 }
@@ -105,8 +102,8 @@ a{
 }
 
 #map{
-    width: 90vw;
-    height: auto;
+    width: 84vw;
+    height: 350px;
 }
 @media screen and (min-width: 1000px) {
     #map{
