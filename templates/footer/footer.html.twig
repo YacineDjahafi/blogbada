@@ -16,22 +16,6 @@
 		</div>
 		<a class="contact_form" href="">Contactez-nous</a>
 			{# AJOUTER FORM DE CONTACT #}
-		{# <div class="navFooter">
-			<h3>Navigation</h3>
-			<ul>
-				{% for menu in menus %}
-					<li class="nav-link">
-						{% if menu.link is not empty %}
-							<a href="{{ menu.link }}">{{ menu.name|capitalize }}</a>
-						{% else %}
-							<a  href="#">
-								{{ menu.name|capitalize }}
-							</a>
-						{% endif %}
-					</li>
-				{% endfor %}
-			</ul>
-		</div> #}
 		{# <a class="newsletter" href="">Newsletter</a> #}
 	
 
@@ -53,7 +37,7 @@
 			</li>
 		{% endif %}
 		{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-			<li class="nav-item">
+			<li>
 				<a href="{{path('app_login')}}" class="nav-link text-dark" aria-current="page">
 					Pour l'équipe
 				</a>
@@ -62,12 +46,11 @@
 			<li>
 				<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
 			</li>
+			<li>
 				<a class="nav nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					{{ app.user.username|capitalize }}
 				</a>
-				<ul class="dropdown-menu">
-					
-				</ul>
+			</li>
 			</div>
 		{% endif %}
 	</footer>

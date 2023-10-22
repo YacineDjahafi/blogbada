@@ -3,7 +3,8 @@
 
 {% if article.featuredImage %}
 	<a class="posterContainer" href="{{ path('article_show', { 'slug': article.slug }) }}">
-		<img draggable="false" src="/uploads/{{ article.featuredImage.filename }}" alt="{{ article.featuredImage.altText }}" loading="lazy" width="200" height="180">
+		<img draggable="false" src="/uploads/{{ article.featuredImage.filename }}" 
+		alt="{{ article.featuredImage.altText }}" width="200" height="180">
 	</a>
 	<div class="hover">
 		<h2 class="featuredText hover">

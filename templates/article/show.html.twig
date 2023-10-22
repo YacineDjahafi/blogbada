@@ -3,6 +3,11 @@
 {% block title %}
 	{{article.title|capitalize}}
 {% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href=" {{asset('/css/show.css') }}">
+<link rel="stylesheet" href=" {{ asset('/css/footer.css') }}">
+			<link rel="stylesheet" href=" {{ asset('/css/nav.css') }}">
+{% endblock %}
 {% block body %}
 	<article>
 		<h1 class="showTitle">{{article.title|striptags('<a><h1>')}}</h1>

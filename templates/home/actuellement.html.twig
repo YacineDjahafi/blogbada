@@ -22,6 +22,10 @@
 	{% endif %}
 {% endfor %} #}
 
+{% block stylesheets %}
+
+<link rel="stylesheet" href=" {{ asset('/css/article.css') }}">
+{% endblock %}
 <div class="bg-actu">
     <div class="actu">
         <h1 class="actu-banner">La saison a commencé!</h1>

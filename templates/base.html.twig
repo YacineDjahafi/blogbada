@@ -2,7 +2,8 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8">
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=4.0,user-scalable=yes, shrink-to-fit=no">
+		{# http-equiv="Content-Security-Policy" content="default-src 'self'" #}
+		 <meta name="viewport"  content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=4.0,user-scalable=yes, shrink-to-fit=no">
 		<title>
 		{% block title %}{% endblock %} -
 			Badaboum Théâtre 
@@ -13,10 +14,7 @@
 			<link rel="stylesheet" href=" {{ asset('/css/header.css') }}">
 			<link rel="stylesheet" href=" {{ asset('/css/footer.css') }}">
 			<link rel="stylesheet" href=" {{ asset('/css/nav.css') }}">
-			<link rel="stylesheet" href=" {{ asset('/css/article.css') }}">
-			<link rel="stylesheet" href=" {{asset('/css/show.css') }}">
 			<link rel="stylesheet" href="{{asset('/css/cours.css')}}">
-			<link rel="stylesheet" href="{{asset('/css/desktop.css')}}">
 		{% endblock %}
 		{% block javascript %}
 			<script defer src="{{ asset('js/script.js') }}"></script>

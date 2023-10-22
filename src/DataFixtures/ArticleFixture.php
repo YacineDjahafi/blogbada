@@ -24,7 +24,6 @@ class ArticleFixture extends AppFixtures
             $duration = "30mn";
             $article_order = 2;
             $createdAt = new \DateTimeImmutable();
-
             $article = new Article();
             $article->setTitle($title);
             $article->setSlug($slug);

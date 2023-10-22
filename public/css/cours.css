@@ -48,7 +48,7 @@ figure{
 .accordion li img {
 	display: block;
     height: 420px;
-    max-width: 380px;
+    max-width: 420px;
 }
 
 /*Image title styles*/
@@ -72,7 +72,7 @@ figure{
 
 @media screen and (width > 700px) {
 	.accordion{
-		width: 840px;
+		width: 900px;
 		height: 420px;
 		
 	margin: 100px auto;
