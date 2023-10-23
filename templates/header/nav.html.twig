@@ -5,7 +5,7 @@
 		<a class="logo" href="127.0.0.1:8000/" alt="Badaboum theatre">Badaboum<span>THÉÂTRE</span></a>
 	</div>
 	<div class="nav-btn">
-		<div class="nav-links">
+		<ul class="nav-links">
 				{% for menu in menus %}
 					{% if menu.isVisible == 1 %}
 						<li class="nav-link">
@@ -31,7 +31,7 @@
 						{% endif %}
 					{% endfor %}
 				</ul>
-			</div>
+			</ul>
 		</div>
 		<div class="hamburger-menu-container">
 			<div class="hamburger-menu">
